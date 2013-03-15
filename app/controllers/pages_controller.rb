@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
   def index
-    binding.pry
+  end
+
+  def contact
+  end
+
+  def about
   end
 end
