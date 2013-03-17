@@ -3,7 +3,7 @@
 # does standard crud actions
 class ArticlesController < ApplicationController
   load_and_authorize_resource
-  respond_to [:html]
+  respond_to :html
   
   def index
     @articles = Article.all
