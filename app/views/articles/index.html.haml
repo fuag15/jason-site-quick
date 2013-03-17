@@ -1,0 +1,17 @@
+%h2
+  Articles
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        name
+      %th
+        content
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td
+          = link_to article.name, article_path(article)
+        %td
+          = truncate article.content
+= link_to 'create article', new_article_path, class: 'btn btn-primary'

@@ -1,0 +1,15 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      .span1
+      .span10
+        = link_to 'Midgard Productions', root_path, class: 'brand'
+        %ul.nav
+          %li{ class: nav_class( 'pages', 'about' ) }
+            = link_to 'about', about_path
+          %li{ class: nav_class( 'pages', 'contact' ) }
+            = link_to 'Contact', contact_path
+          %li{ class: nav_class( 'articles' ) }
+            = link_to 'Blog', articles_path
+      %p.navbar-text.pull-right
+        = render partial: 'layouts/session_control'
