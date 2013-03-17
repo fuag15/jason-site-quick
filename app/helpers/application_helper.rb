@@ -19,10 +19,10 @@ module ApplicationHelper
   # you can pass just a controller and it will return active for if we are in the controller
   # or a controller and action combo in which case it will test against a narrower scope
   # used in our _navigation.haml partial
-  def nav_class controller, action=nil
-    if params[:controller] == controller
-      if action
-        if params[:action] == action
+  def nav_class controller_needed, action_needed=nil
+    if controller_name == controller_needed
+      if action_needed
+        if action_name == action_needed
           'active'
         end
       else
