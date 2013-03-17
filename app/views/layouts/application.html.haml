@@ -1,9 +1,16 @@
 !!!
 %html
   %head
-    %title Mildwurm
-    = stylesheet_link_tag    "application", :media => "all"
+    %title
+      Midgard Productions
+    = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = yield
+    = render partial: 'layouts/navigation'
+    .container-fluid
+      .row-fluid
+        .span1
+        .span10
+          = render partial: 'layouts/flash_messages'
+          = yield

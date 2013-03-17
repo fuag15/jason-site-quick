@@ -1,4 +1,9 @@
+# On Can Can Access Denied we send to root page see Ability
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  load_and_authorize_resource!
+  check_authorization unless: :devise_controller?
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 end

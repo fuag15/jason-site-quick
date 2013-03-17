@@ -1,1 +1,9 @@
-show
+%p
+  = @article.name
+%p
+  = @article.content
+%p
+  .btn-group.pull-left
+    = link_to 'back', articles_path, class: 'btn'
+    = link_to 'edit', edit_article_path(@article), class: 'btn btn-primary'
+= button_to 'destroy', article_path(@article), method: :delete, class: 'btn btn-danger pull-right'
