@@ -31,7 +31,7 @@ You should be able to view the site on `localhost:3000`, or [here][local-host]
 
 ##Current Hosts
 
-We are not hosting anywhere right now! will change closer to prod
+- [staging][staging-heroku]
 
 ##Dev Guidlines
 
@@ -49,6 +49,7 @@ We are not hosting anywhere right now! will change closer to prod
 - Front end design
 - Work with jason on hosting
 
+[staging-heroku]: midgard-productions.herokuapp.com "Heroku staging sever"
 [local-host]: localhost:3000 "Local default server port"
 [postgresql]: http://postgresql.org "Postgresql Official Site"
 [rvm]: http://rvm.io "Ruby Versioning Manager Official Site"

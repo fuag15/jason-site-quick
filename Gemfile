@@ -10,6 +10,7 @@ gem 'carrierwave', '~> 0.8.0' # image and file uploading
 gem 'rmagick', '~> 2.13.2' # image manipulation library
 gem 'devise', '~> 2.2.3' # user management
 gem 'cancan', '~> 1.6.9' # route access control
+gem 'foreman', '~> 0.62.0' # manage start commend for heroku
 
 group :assets do
   gem 'bootstrap-sass', '~> 2.3.0.1' # twitter bootstrap
