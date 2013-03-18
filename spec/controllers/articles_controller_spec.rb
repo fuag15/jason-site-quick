@@ -22,7 +22,7 @@ describe ArticlesController do
   end
 
   describe "GET new" do
-    context "when signed in as adming" do
+    context "when signed in as admin" do
       before(:each) do
         auth_admin
       end
@@ -36,6 +36,13 @@ describe ArticlesController do
       it "renders the new template" do
         get :new
         expect(response).to render_template "new"
+      end
+    end
+
+    context "when not signed in" do
+      it "redirects to root" do
+        get :new
+        expect(response).to redirect_to root_path
       end
     end
   end
