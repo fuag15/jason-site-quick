@@ -29,3 +29,7 @@ group :test, :development do
   gem 'capybara', '~> 2.0.2' # headless browser tests
   gem 'launchy', '~> 2.2.0' # auto launch web page for capybara tests
 end
+
+group :heroku do
+  gem 'sass-rails',   '~> 3.2.3' # sass interpretation outside of assets for heroku
+end

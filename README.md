@@ -49,8 +49,8 @@ You should be able to view the site on `localhost:3000`, or [here][local-host]
 - Front end design
 - Work with jason on hosting
 
-[staging-heroku]: midgard-productions.herokuapp.com "Heroku staging sever"
-[local-host]: localhost:3000 "Local default server port"
+[staging-heroku]: http://midgard-productions.herokuapp.com "Heroku staging sever"
+[local-host]: http://localhost:3000 "Local default server port"
 [postgresql]: http://postgresql.org "Postgresql Official Site"
 [rvm]: http://rvm.io "Ruby Versioning Manager Official Site"
 [git-flow]: http://github.com/nvie/gitflow "Git-flow plugin page"
