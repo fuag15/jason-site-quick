@@ -11,10 +11,9 @@ gem 'rmagick', '~> 2.13.2' # image manipulation library
 gem 'devise', '~> 2.2.3' # user management
 gem 'cancan', '~> 1.6.9' # route access control
 gem 'foreman', '~> 0.62.0' # manage start commend for heroku
-gem 'grancher', '~> 0.1.5' # auto host rdoc on gh-pages
+gem 'sass-rails', '~> 3.2.3' # sass interpretation
 
 group :assets do
-  gem 'sass-rails', '~> 3.2.3' # sass interpretation
   gem 'bootstrap-sass', '~> 2.3.0.1' # twitter bootstrap
   gem 'coffee-rails', '~> 3.2.1' # coffee asset pipe support
   gem 'therubyracer', '~> 0.11.4', :platforms => :ruby # javascript runtime in ruby
