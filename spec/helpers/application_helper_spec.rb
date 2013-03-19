@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe ApplicationHelper do
   describe "#nav_class" do
-    before(:each) do
-      helper.stub!(:action_name).and_return('index')
-      helper.stub!(:controller_name).and_return('pages')
+    before :each do
+      helper.stub!(:action_name).and_return 'index'
+      helper.stub!(:controller_name).and_return 'pages'
     end
 
     context "when we are passing both controller and action" do

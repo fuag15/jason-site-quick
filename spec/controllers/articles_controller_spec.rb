@@ -23,7 +23,7 @@ describe ArticlesController do
 
   describe "GET new" do
     context "when signed in as admin" do
-      before(:each) do
+      before :each do
         auth_admin
       end
 
@@ -76,7 +76,7 @@ describe ArticlesController do
     end
 
     context "when signed in as admin" do
-      before(:each) do
+      before :each do
         auth_admin
         @article = FactoryGirl.create :article
         get :edit, id: @article
@@ -94,7 +94,7 @@ describe ArticlesController do
   end
 
   describe "POST update" do
-    before(:each) do
+    before :each do
       @article = FactoryGirl.create :article
       @new_attr = FactoryGirl.attributes_for :article
     end
@@ -108,7 +108,7 @@ describe ArticlesController do
     end
 
     context "when signed in as admin" do
-      before(:each) do
+      before :each do
         auth_admin
       end
 
@@ -121,7 +121,7 @@ describe ArticlesController do
   end
 
   describe "GET show" do
-    before(:each) do
+    before :each do
       @article = FactoryGirl.create :article
       get :show, id: @article
     end
@@ -137,7 +137,7 @@ describe ArticlesController do
   end
 
   describe "DELETE destroy" do
-    before(:each) do
+    before :each do
       @article = FactoryGirl.create :article
     end
 
@@ -150,7 +150,7 @@ describe ArticlesController do
     end
 
     context "when an admin user is logged in" do
-      before(:each) do
+      before :each do
         auth_admin
       end
 

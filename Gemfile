@@ -28,4 +28,5 @@ group :test, :development do
   gem 'factory_girl_rails', '~> 4.2.1' # model factories
   gem 'capybara', '~> 2.0.2' # headless browser tests
   gem 'launchy', '~> 2.2.0' # auto launch web page for capybara tests
+  gem 'database_cleaner', '~> 0.9.1' # clean out databases between tests
 end
