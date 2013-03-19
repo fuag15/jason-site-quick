@@ -1,14 +1,17 @@
-Mon, 18 Mar 2013 00:42:39 -0700
-doc/README_FOR_APP	Sun, 17 Mar 2013 04:17:19 -0700
-app/controllers/application_controller.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/controllers/articles_controller.rb	Sun, 17 Mar 2013 04:31:33 -0700
-app/controllers/pages_controller.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/helpers/application_helper.rb	Mon, 18 Mar 2013 00:25:27 -0700
-app/mailers/contact_mailer.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/models/ability.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/models/article.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/models/image.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/models/member.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/models/project.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/models/user.rb	Sun, 17 Mar 2013 04:10:37 -0700
-app/models/video.rb	Sun, 17 Mar 2013 04:10:37 -0700
+Tue, 19 Mar 2013 02:01:03 -0700
+app/controllers/application_controller.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/controllers/articles_controller.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/controllers/images_controller.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/controllers/pages_controller.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/helpers/application_helper.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/helpers/image_helper.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/mailers/contact_mailer.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/models/ability.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/models/article.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/models/image.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/models/member.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/models/project.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/models/user.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/models/video.rb	Mon, 18 Mar 2013 23:55:32 -0700
+app/uploaders/image_uploader.rb	Mon, 18 Mar 2013 23:55:32 -0700
+doc/README.rdoc	Tue, 19 Mar 2013 02:00:49 -0700

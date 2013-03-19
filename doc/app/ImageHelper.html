@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>module ApplicationHelper - Midgard Productions RDoc</title>
+<title>module ImageHelper - Midgard Productions RDoc</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>app/helpers/application_helper.rb
+    <li>app/helpers/image_helper.rb
   </ul>
 </nav>
 
@@ -64,9 +64,11 @@
 
   <ul class="link-list">
     
-    <li><a href="#method-i-bootstrap_class_for">#bootstrap_class_for</a>
+    <li><a href="#method-i-owner_aware_edit_image_path">#owner_aware_edit_image_path</a>
     
-    <li><a href="#method-i-nav_class">#nav_class</a>
+    <li><a href="#method-i-owner_aware_images_path">#owner_aware_images_path</a>
+    
+    <li><a href="#method-i-owner_aware_new_image_path">#owner_aware_new_image_path</a>
     
   </ul>
 </nav>
@@ -126,7 +128,7 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="module">module ApplicationHelper</h1>
+  <h1 class="module">module ImageHelper</h1>
 
   <div id="description" class="description">
     
@@ -150,88 +152,106 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-bootstrap_class_for" class="method-detail ">
+      <div id="method-i-owner_aware_edit_image_path" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">bootstrap_class_for</span><span
-            class="method-args">(flash_type)</span>
+          <span class="method-name">owner_aware_edit_image_path</span><span
+            class="method-args">(owner, image)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>helper class to return the right bootstrap display class for rails flash
-types</p>
+          <p>return the right edit path since we are multi using this model</p>
           
 
           
-          <div class="method-source-code" id="bootstrap_class_for-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 3</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">bootstrap_class_for</span> <span class="ruby-identifier">flash_type</span>
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">flash_type</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:success</span>
-      <span class="ruby-string">&quot;alert-success&quot;</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:error</span>
-      <span class="ruby-string">&quot;alert-error&quot;</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:alert</span>
-      <span class="ruby-string">&quot;alert-block&quot;</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:notice</span>
-      <span class="ruby-string">&quot;alert-info&quot;</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">flash_type</span>.<span class="ruby-identifier">to_s</span>
+          <div class="method-source-code" id="owner_aware_edit_image_path-source">
+            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_edit_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
+    <span class="ruby-identifier">edit_article_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">edit_project_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- bootstrap_class_for-source -->
+          </div><!-- owner_aware_edit_image_path-source -->
           
         </div>
 
         
 
         
-      </div><!-- bootstrap_class_for-method -->
+      </div><!-- owner_aware_edit_image_path-method -->
 
     
-      <div id="method-i-nav_class" class="method-detail ">
+      <div id="method-i-owner_aware_images_path" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">nav_class</span><span
-            class="method-args">(controller_needed, action_needed=nil)</span>
+          <span class="method-name">owner_aware_images_path</span><span
+            class="method-args">(owner)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>helper that generate a class of ‘active’ if the current route is the
-current pages route you can pass just a controller and it will return
-active for if we are in the controller or a controller and action combo in
-which case it will test against a narrower scope used in our
-_navigation.haml partial</p>
+          <p>return the right index path since we are sharing this model</p>
           
 
           
-          <div class="method-source-code" id="nav_class-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">nav_class</span> <span class="ruby-identifier">controller_needed</span>, <span class="ruby-identifier">action_needed</span>=<span class="ruby-keyword">nil</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">controller_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">controller_needed</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">action_needed</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">action_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">action_needed</span>
-        <span class="ruby-string">'active'</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-string">'active'</span>
-    <span class="ruby-keyword">end</span>
+          <div class="method-source-code" id="owner_aware_images_path-source">
+            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_images_path</span> <span class="ruby-identifier">owner</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
+    <span class="ruby-identifier">article_images_path</span> <span class="ruby-identifier">owner</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">project_images_path</span> <span class="ruby-identifier">owner</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- nav_class-source -->
+          </div><!-- owner_aware_images_path-source -->
           
         </div>
 
         
 
         
-      </div><!-- nav_class-method -->
+      </div><!-- owner_aware_images_path-method -->
+
+    
+      <div id="method-i-owner_aware_new_image_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">owner_aware_new_image_path</span><span
+            class="method-args">(owner)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the right new path needed since this is a shared model</p>
+          
+
+          
+          <div class="method-source-code" id="owner_aware_new_image_path-source">
+            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_new_image_path</span> <span class="ruby-identifier">owner</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
+    <span class="ruby-identifier">new_article_image_path</span> <span class="ruby-identifier">owner</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new_project_image_path</span> <span class="ruby-identifier">owner</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- owner_aware_new_image_path-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- owner_aware_new_image_path-method -->
 
     
     </section><!-- public-instance-method-details -->

@@ -1,0 +1,19 @@
+=Jason's Midgard Production Portfolio Site
+
+Site to demo Midgar Productions projects etc
+
+==Dev Guidlines
+
+- Use git flow
+- Use the issue tracker
+- Comment
+- Test
+- Keep docs up to date!
+
+==Roadmap
+
+- Basic site with crud functionality
+- Vimeo rating / viewer in d3.js -> gem
+- markdown for articles -> redcarpet2 with extensions
+- Front end design
+- Work with jason on hosting

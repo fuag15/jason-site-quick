@@ -2,9 +2,9 @@
 
 <html>
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>class ArticlesController - Rails Application Documentation</title>
+<title>class ArticlesController - Midgard Productions RDoc</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -74,12 +74,6 @@
     
     <li><a href="#method-i-destroy">#destroy</a>
     
-    <li><a href="#method-i-edit">#edit</a>
-    
-    <li><a href="#method-i-index">#index</a>
-    
-    <li><a href="#method-i-new">#new</a>
-    
     <li><a href="#method-i-show">#show</a>
     
     <li><a href="#method-i-update">#update</a>
@@ -95,7 +89,7 @@
 
   <ul>
   
-    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+    <li class="file"><a href="./doc/README_rdoc.html">README</a>
   
   </ul>
 </nav>
@@ -118,6 +112,12 @@
     <li><a href="./ContactMailer.html">ContactMailer</a>
   
     <li><a href="./Image.html">Image</a>
+  
+    <li><a href="./ImageHelper.html">ImageHelper</a>
+  
+    <li><a href="./ImageUploader.html">ImageUploader</a>
+  
+    <li><a href="./ImagesController.html">ImagesController</a>
   
     <li><a href="./Member.html">Member</a>
   
@@ -180,15 +180,14 @@ actions</p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-  <span class="ruby-identifier">article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:article</span>]
-  <span class="ruby-identifier">respond_with</span>(<span class="ruby-identifier">article</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">article</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@article</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">save</span>
       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Article Created'</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">article</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@article</span> }
     <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-identifier">article</span>.<span class="ruby-identifier">error</span>
+      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">error</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_article_path</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
@@ -219,11 +218,10 @@ actions</p>
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-  <span class="ruby-identifier">article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
   <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@article</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">article</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">article</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@article</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">destroy</span>
       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Article Successfully Deleted'</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">articles_path</span> }
     <span class="ruby-keyword">else</span>
@@ -239,99 +237,6 @@ actions</p>
 
         
       </div><!-- destroy-method -->
-
-    
-      <div id="method-i-edit" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">edit</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
-  <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
-  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@article</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- edit-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- edit-method -->
-
-    
-      <div id="method-i-index" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">index</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@articles</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">all</span>
-  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@articles</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- index-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- index-method -->
-
-    
-      <div id="method-i-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@article</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- new-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- new-method -->
 
     
       <div id="method-i-show" class="method-detail ">
@@ -350,9 +255,8 @@ actions</p>
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 49</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
   <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@article</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">blank?</span>
       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">'Article not found'</span>
@@ -386,16 +290,15 @@ actions</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/articles_controller.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
-  <span class="ruby-ivar">@article</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
-  <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@article</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@article</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@article</span>.<span class="ruby-identifier">update_attributes!</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:article</span>]
       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Article Succesfully updated'</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@article</span> }
     <span class="ruby-keyword">else</span>
       <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-identifier">article</span>.<span class="ruby-identifier">error</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_article_path</span>(<span class="ruby-identifier">article</span>) }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_article_path</span> <span class="ruby-ivar">@article</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
