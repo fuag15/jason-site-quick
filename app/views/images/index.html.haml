@@ -1,0 +1,17 @@
+%h2
+  Images
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        name
+      %th
+        image
+  %tbody
+    - @images.each do |image|
+      %tr
+        %td
+          = link_to image.name, [@owner, image]
+        %td
+          = image_tag image.file.thumb.url
+= link_to 'create image', owner_aware_new_image_path(@owner), class: 'btn btn-primary'

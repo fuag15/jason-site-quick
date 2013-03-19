@@ -1,7 +1,9 @@
 Mildwurm::Application.routes.draw do
   devise_for :users
   
-  resources :articles
+  resources :articles do
+    resources :images
+  end
 
   match '/contact' => 'pages#contact'
   match '/about' => 'pages#about'

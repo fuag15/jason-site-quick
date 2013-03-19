@@ -11,7 +11,7 @@
     - @articles.each do |article|
       %tr
         %td
-          = link_to article.name, article_path(article)
+          = link_to article.name, article
         %td
           = truncate article.content
 = link_to 'create article', new_article_path, class: 'btn btn-primary'

@@ -13,8 +13,8 @@ gem 'cancan', '~> 1.6.9' # route access control
 gem 'foreman', '~> 0.62.0' # manage start commend for heroku
 
 group :assets do
+  gem 'sass-rails', '~> 3.2.3' # sass interpretation
   gem 'bootstrap-sass', '~> 2.3.0.1' # twitter bootstrap
-  gem 'sass-rails',   '~> 3.2.3' # sass interpretation
   gem 'coffee-rails', '~> 3.2.1' # coffee asset pipe support
   gem 'therubyracer', '~> 0.11.4', :platforms => :ruby # javascript runtime in ruby
   gem 'uglifier', '>= 1.0.3' # asset minification
@@ -28,8 +28,4 @@ group :test, :development do
   gem 'factory_girl_rails', '~> 4.2.1' # model factories
   gem 'capybara', '~> 2.0.2' # headless browser tests
   gem 'launchy', '~> 2.2.0' # auto launch web page for capybara tests
-end
-
-group :heroku do
-  gem 'sass-rails',   '~> 3.2.3' # sass interpretation outside of assets for heroku
 end

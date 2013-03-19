@@ -1,0 +1,6 @@
+= form_for [owner, image], html: { multipart: true } do |f|
+  %p
+    = f.text_field :name
+  %p
+    = f.file_field :file
+  = f.submit class: 'btn btn-primary'
