@@ -45,7 +45,7 @@ You should be able to view the site on `localhost:3000`, or [here][local-host]
 
 - Basic site with crud functionality
 - Vimeo rating / viewer in d3.js -> gem
-- markdown for articles -> gem
+- markdown for articles -> redcarpet2 with extensions
 - Front end design
 - Work with jason on hosting
 
