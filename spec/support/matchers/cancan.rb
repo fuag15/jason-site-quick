@@ -1,17 +1,17 @@
 # works with .should and expect syntax
-# @user.should have_ability(:create, for: Post.new)
-# @user.should have_ability([:create, :read], for: Post.new)
-# @user.should have_ability({create: true, read: false, update: false, destroy: true}, for: Post.new)
+# @user.should have_ability :create, for: Post.new
+# @user.should have_ability [:create, :read], for: Post.new
+# @user.should have_ability {create: true, read: false, update: false, destroy: true}, for: Post.new
 RSpec::Matchers.define :have_ability do |ability_hash, options = {}|
   match do |user|
     ability = Ability.new user
     target = options[:for]
     @ability_result = {}
     
-    # :create -> { create: true }
+    # :create -> create: true
     ability_hash = { ability_hash: true } if ability_hash.is_a? Symbol 
     
-     # e.g.: [:create, :read] -> {create: true, read: true}
+    # [:create, :read] -> create: true, read: true
     ability_hash = ability_hash.inject({}) do | accumulator_hash , value | 
       accumulator_hash.merge value: true
     end if ability_hash.is_a? Array 
@@ -29,7 +29,7 @@ RSpec::Matchers.define :have_ability do |ability_hash, options = {}|
     # :create -> create: true
     ability_hash = { ability_hash: true } if ability_hash.is_a? Symbol 
     
-    # e.g.: [:create, :read] -> create: true, read: true
+    # [:create, :read] -> create: true, read: true
     ability_hash = ability_hash.inject({}) do | accumulator_hash , value | 
       accumulator_hash.merge value: true 
     end if ability_hash.is_a? Array 
