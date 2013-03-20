@@ -1,19 +1,25 @@
 require 'spec_helper'
 
-describe "articles/edit" do
-  it "renders _form partial for the article" do
+describe 'articles/edit' do
+  before :each do
     article = FactoryGirl.create :article
-    assign(:article, article)
+    assign :article, article
     render
-    expect(view).to render_template( partial: "_form")
+  end
+
+  it 'renders _form partial for the article' do
+    expect(view).to render_template( partial: '_form')
   end
 end
 
-describe "articles/new" do
-  it "displays the event location" do
-    article = FactoryGirl.build :article
-    assign(:article, article)
+describe 'articles/new' do
+  before :each do
+    article = FactoryGirl.create :article
+    assign :article, article
     render
-    expect(view).to render_template( partial: "_form")
+  end
+
+  it 'displays the image location' do
+    expect(view).to render_template( partial: '_form')
   end
 end

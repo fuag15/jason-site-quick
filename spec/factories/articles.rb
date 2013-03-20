@@ -1,12 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
-  sequence :name do |n|
-    "article#{n}"
-  end
-
   factory :article do
     name
-    content "Article Text"
+    content do
+      Forgery(:lorem_ipsum).words 10
+    end
   end
 end

@@ -1,8 +1,13 @@
 FactoryGirl.define do
   factory :image do
-    name "waterdrop"
+    name
+    
     file do
-      File.open Dir[Rails.root, 'spec', 'support', 'images', 'waterdrop.jpg']
+      File.open Rails.root.join 'spec/support/images/waterdrop.jpg'
+    end
+
+    factory :image_with_article do
+      association :article, factory: :article
     end
   end
 end

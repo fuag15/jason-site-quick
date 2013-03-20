@@ -22,6 +22,7 @@ end
 
 group :test, :development do
   gem 'cheat', '~> 1.3.3' # quick spec lookup
+  gem 'forgery', '~> 0.5.0' # fake string values randomly with order!
   gem 'debugger', '~> 1.5.0' # ruby debugg generalist tool
   gem 'pry', '~> 0.9.12' # ruby runtime introspection
   gem 'rspec-rails', '~> 2.13.0' # unit tests for models / routes

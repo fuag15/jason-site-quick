@@ -1,23 +1,27 @@
 require 'spec_helper'
 
-describe ArticlesController do
+describe ImagesController do
+  before :each do
+    @image = FactoryGirl.create :image_with_article
+  end
+
   describe 'GET index' do
     it 'responds successfully with an HTTP 200 status code' do
-      get :index
+      get :index, article_id: @image.article
       expect(response).to be_success
       expect(response.code).to eq '200'
     end
 
     it 'renders the index template' do
-      get :index
+      get :index, article_id: @image.article
       expect(response).to render_template 'index'
     end
 
-    it 'loads all of the articles into @articles' do
-      article1 = FactoryGirl.create :article
-      article2 = FactoryGirl.create :article
-      get :index
-      expect(assigns :articles).to match_array [article1, article2]
+    it 'loads all of the images into @images' do
+      image1 = FactoryGirl.create :image_with_article
+      image2 = FactoryGirl.create :image_with_article
+      get :index, article_id: @image.article
+      expect(assigns :images).to match_array [@image, image1, image2]
     end
   end
 
@@ -28,20 +32,20 @@ describe ArticlesController do
       end
 
       it 'responds successfully with an HTTP 200 status code' do
-        get :new
+        get :new, article_id: @image.article
         expect(response).to be_success
         expect(response.code).to eq '200'
       end
 
       it 'renders the new template' do
-        get :new
+        get :new, article_id: @image.article
         expect(response).to render_template 'new'
       end
     end
 
     context 'when not signed in' do
       it 'redirects to root' do
-        get :new
+        get :new, article_id: @image.article
         expect(response).to redirect_to root_path
       end
     end
@@ -49,10 +53,10 @@ describe ArticlesController do
 
   describe 'POST create' do
     context 'when not signed in' do
-      it 'doesnt create an article' do
+      it 'doesnt create an image' do
         expect{
-          post :create, article: FactoryGirl.attributes_for(:article)
-        }.to change(Article,:count).by 0
+          post :create, article_id: @image.article, image: FactoryGirl.attributes_for(:image)
+        }.to change(Image,:count).by 0
       end
     end
 
@@ -60,8 +64,8 @@ describe ArticlesController do
       it 'creates article' do 
         auth_admin
         expect{
-          post :create, article: FactoryGirl.attributes_for(:article)
-        }.to change(Article,:count).by 1
+          post :create, article_id: @image.article, image: FactoryGirl.attributes_for(:image)
+        }.to change(Image,:count).by 1
       end
     end
   end
@@ -70,16 +74,15 @@ describe ArticlesController do
     context 'when not signed in' do
       it 'doesnt create an article' do
         expect{
-          post :create, article: FactoryGirl.attributes_for(:article)
-        }.to change(Article,:count).by 0
+          post :create, article_id: @image.article, image: FactoryGirl.attributes_for(:image)
+        }.to change(Image,:count).by 0
       end
     end
 
     context 'when signed in as admin' do
       before :each do
         auth_admin
-        @article = FactoryGirl.create :article
-        get :edit, id: @article
+        get :edit, article_id: @image.article, id: @image
       end
 
       it 'responds successfully with an HTTP 200 status code' do
@@ -87,23 +90,22 @@ describe ArticlesController do
         expect(response.code).to eq '200'
       end
 
-      it 'loads the appropriate article' do
-        expect(assigns :article).to eq @article
+      it 'loads the appropriate image' do
+        expect(assigns :image).to eq @image
       end
     end
   end
 
   describe 'POST update' do
     before :each do
-      @article = FactoryGirl.create :article
-      @new_attr = FactoryGirl.attributes_for :article
+      @new_attr = FactoryGirl.attributes_for :image
     end
 
     context 'when not signed in' do
-      it 'doesnt update the article' do
-        post :update, id: @article, article: @new_attr
-        @article.reload
-        @article.name.should_not eq @new_attr[:name]
+      it 'doesnt update the image' do
+        post :update, article_id: @image.article, id: @image, image: @new_attr
+        @image.reload
+        @image.name.should_not eq @new_attr[:name]
       end
     end
 
@@ -112,18 +114,17 @@ describe ArticlesController do
         auth_admin
       end
 
-      it 'should update the article' do
-        post :update, id: @article, article: @new_attr
-        @article.reload
-        @article.name.should eq @new_attr[:name]
+      it 'should update the image' do
+        post :update, article_id: @image.article, id: @image, image: @new_attr
+        @image.reload
+        @image.name.should eq @new_attr[:name]
       end
     end
   end
 
   describe 'GET show' do
     before :each do
-      @article = FactoryGirl.create :article
-      get :show, id: @article
+      get :show, article_id: @image.article, id: @image
     end
 
     it 'responds successfully with an HTTP 200 status code' do
@@ -131,21 +132,17 @@ describe ArticlesController do
       expect(response.code).to eq '200'
     end
 
-    it 'loads the correct article' do
-      expect(assigns :article).to eq @article
+    it 'loads the correct image' do
+      expect(assigns :image).to eq @image
     end
   end
 
   describe 'DELETE destroy' do
-    before :each do
-      @article = FactoryGirl.create :article
-    end
-
     context 'when no user logged in' do
-      it 'doesnt delete the article' do
+      it 'doesnt delete the image' do
         expect{
-          delete :destroy, id: @article
-        }.not_to change(Article, :count)
+          delete :destroy, article_id: @image.article, id: @image
+        }.not_to change(Image, :count)
       end
     end
 
@@ -154,10 +151,10 @@ describe ArticlesController do
         auth_admin
       end
 
-      it 'should delete the article' do
+      it 'should delete the image' do
         expect{
-          delete :destroy, id: @article
-        }.to change(Article, :count).by -1
+          delete :destroy, article_id: @image.article, id: @image
+        }.to change(Image, :count).by -1
       end
     end
   end
