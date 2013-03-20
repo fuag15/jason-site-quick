@@ -21,6 +21,8 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'simplecov', '~> 0.7.1' # code coverage
+  gem 'awesome_print', '~> 1.1.0' # better irb printing
   gem 'cheat', '~> 1.3.3' # quick spec lookup
   gem 'forgery', '~> 0.5.0' # fake string values randomly with order!
   gem 'debugger', '~> 1.5.0' # ruby debugg generalist tool
@@ -30,4 +32,9 @@ group :test, :development do
   gem 'capybara', '~> 2.0.2' # headless browser tests
   gem 'launchy', '~> 2.2.0' # auto launch web page for capybara tests
   gem 'database_cleaner', '~> 0.9.1' # clean out databases between tests
+  gem 'term-ansicolor', '~> 1.1.1' # dependency of analyzer rake task
+  gem 'flog', '~> 3.2.2' # how complex is our code
+  gem 'flay', '~> 2.1.0' # how much does our code repeat itself
+  gem 'rails_best_practices', '~> 1.13.4' # how close are we to standards
+  gem 'reek', '~> 1.3.1' # how smelly are we
 end

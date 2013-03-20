@@ -10,6 +10,20 @@ Site to demo Midgar Productions projects etc
 - Test
 - Keep docs up to date!
 
+===Testing
+
+- rake rspec
+- rake rspec:coverage
+- rake analyzer:all
+
+====Coverage Report
+
+- see coverage[link:../../coverage]
+
+===Doccing
+
+- rake doc:reapp
+
 ==Roadmap
 
 - Basic site with crud functionality

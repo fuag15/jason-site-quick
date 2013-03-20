@@ -44,7 +44,7 @@ You should be able to view the site on `localhost:3000`, or [here][local-host]
 ##Roadmap
 
 - Basic site with crud functionality
-- Vimeo rating / viewer in d3.js -> gem -> jasmin tests, webkit-js-integration, html5, 3js bing?
+- Vimeo rating / viewer in d3.js -> gem -> jasmin tests, webkit-js-integration, html5, 3js, modernify
 - markdown for articles -> redcarpet2 with extensions
 - Front end design
 - Work with jason on hosting
@@ -54,5 +54,5 @@ You should be able to view the site on `localhost:3000`, or [here][local-host]
 [postgresql]: http://postgresql.org "Postgresql Official Site"
 [rvm]: http://rvm.io "Ruby Versioning Manager Official Site"
 [git-flow]: http://github.com/nvie/gitflow "Git-flow plugin page"
-[local-rdoc]: http://localhost:3001 "Local generated rdoc"
+[local-rdoc]: http://localhost:3001/doc/app "Local generated rdoc"
 [rails-rdoc]: rails_primer.rdoc "Local rails default doc"
