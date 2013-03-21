@@ -8,17 +8,10 @@ class ImagesController < ApplicationController
   def create
     respond_with @image do |format|
       if @image.save
-        flash[:notice] = 'Image Created'
-        format.html { redirect_to [@owner, @image] }
+        format.html { redirect_to [@owner, @image], notice: 'Image Created' }
       else
-        flash[:error] = @image.error
-
         format.html do
-          if params[:project_id].blank?
-            redirect_to new_article_image_path @owner
-          else
-            redirect_to new_project_image_path @owner
-          end
+          redirect_to :back, error: @image.error
         end
       end
     end
@@ -27,17 +20,10 @@ class ImagesController < ApplicationController
   def update
     respond_with @image do |format|
       if @image.update_attributes! params[:image]
-        flash[:notice] = 'Image Succesfully updated'
-        format.html { redirect_to [@owner, @image] }
+        format.html { redirect_to [@owner, @image], notice: 'Image Successfully updated' }
       else
-        flash[:error] = image.error
-
         format.html do
-          if params[:project_id].blank?
-            redirect_to edit_article_image_path @owner, @image
-          else
-            redirect_to edit_project_image_path @owner, @image
-          end
+          redirect_to :back, error: @image.error
         end
       end
     end
@@ -46,14 +32,8 @@ class ImagesController < ApplicationController
   def show
     respond_with @image do |format|
       if @image.blank?
-        flash[:error] = 'Image not found'
-
         format.html do
-          if params[:project_id].blank?
-            redirect_to article_images_path @owner
-          else
-            redirect_to project_images_path @owner
-          end
+          redirect_to :back, error: 'Image not found'
         end
       end
     end
@@ -62,8 +42,8 @@ class ImagesController < ApplicationController
   def destroy
     respond_with @image do |format|
       if @image and @image.destroy
-        flash[:notice] = 'Image Successfully Deleted'
         format.html do 
+          flash[:notice] = 'Image Successfully Deleted'
           if params[:project_id].blank?
             redirect_to article_images_path @owner
           else
@@ -71,7 +51,9 @@ class ImagesController < ApplicationController
           end
         end
       else
-        flash[:error] = 'Image not found'
+        format.html do 
+          redirect_to :back, error: 'Image not found'
+        end
       end
     end
   end

@@ -15,8 +15,7 @@ class PagesController < ApplicationController
 
   def submit
     ContactMailer.contact(params[:from], params[:text]).deliver
-    flash[:notice] = 'Contact mail sent'
-    redirect_to contact_pages_path
+    redirect_to contact_pages_path, notice: 'Contact mail sent'
   end
 
   def about

@@ -8,11 +8,9 @@ class ArticlesController < ApplicationController
   def create
     respond_with @article do |format|
       if @article.save
-        flash[:notice] = 'Article Created'
-        format.html { redirect_to @article }
+        format.html { redirect_to @article, notice: 'Article Created' }
       else
-        flash[:error] = @article.error
-        format.html { redirect_to new_article_path }
+        format.html { redirect_to new_article_path, error: @article.error }
       end
     end
   end
@@ -20,11 +18,9 @@ class ArticlesController < ApplicationController
   def update
     respond_with @article do |format|
       if @article.update_attributes! params[:article]
-        flash[:notice] = 'Article Succesfully updated'
-        format.html { redirect_to @article }
+        format.html { redirect_to @article, notice: 'Article Successfully updated' }
       else
-        flash[:error] = article.error
-        format.html { redirect_to edit_article_path @article }
+        format.html { redirect_to edit_article_path @article, error: @article.error }
       end
     end
   end
@@ -32,8 +28,7 @@ class ArticlesController < ApplicationController
   def show
     respond_with @article do |format|
       if @article.blank?
-        flash[:error] = 'Article not found'
-        format.html { redirect_to articles_path }
+        format.html { redirect_to articles_path, error: 'Article not found' }
       end
     end
   end
@@ -41,10 +36,9 @@ class ArticlesController < ApplicationController
   def destroy
     respond_with @article do |format|
       if @article and @article.destroy
-        flash[:notice] = 'Article Successfully Deleted'
-        format.html { redirect_to articles_path }
+        format.html { redirect_to articles_path, notice: 'Article Successfully Deleted' }
       else
-        flash[:error] = 'Article not found'
+        format.html { redirect_to articles_path, error: 'Article not found' }
       end
     end
   end
