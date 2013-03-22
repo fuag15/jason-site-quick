@@ -1,4 +1,4 @@
-Thu, 21 Mar 2013 22:03:50 -0700
+Thu, 21 Mar 2013 22:47:46 -0700
 app/controllers/application_controller.rb	Thu, 21 Mar 2013 20:34:55 -0700
 app/controllers/articles_controller.rb	Thu, 21 Mar 2013 20:36:02 -0700
 app/controllers/images_controller.rb	Thu, 21 Mar 2013 21:22:50 -0700
@@ -13,5 +13,5 @@ app/models/member.rb	Thu, 21 Mar 2013 00:15:15 -0700
 app/models/project.rb	Tue, 19 Mar 2013 02:07:17 -0700
 app/models/user.rb	Tue, 19 Mar 2013 02:07:17 -0700
 app/models/video.rb	Tue, 19 Mar 2013 02:07:17 -0700
-app/uploaders/image_uploader.rb	Thu, 21 Mar 2013 21:27:56 -0700
+app/uploaders/image_uploader.rb	Thu, 21 Mar 2013 22:36:28 -0700
 doc/README.rdoc	Wed, 20 Mar 2013 02:16:20 -0700

@@ -231,15 +231,15 @@ images you might use something like this:</p>
         <div class="method-description">
           
           <p>Override the directory where uploaded files will be stored. This is a
-sensible default for uploaders that are meant to be mounted:</p>
+sensible default for uploaders that are meant to be mounted: This method
+smells of :reek:DuplicateMethodCall but ignores them</p>
           
 
           
           <div class="method-source-code" id="store_dir-source">
-            <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 24</span>
+            <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">store_dir</span>
-  <span class="ruby-identifier">binding</span>.<span class="ruby-identifier">pry</span>
-  <span class="ruby-node">&quot;uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}&quot;</span>
+  <span class="ruby-node">&quot;uploads/#{@model.class.to_s.underscore}/#{mounted_as}/#{@model.id}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- store_dir-source -->
           
