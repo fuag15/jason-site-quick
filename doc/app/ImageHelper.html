@@ -174,11 +174,11 @@ are possibly owned by two classes</p>
           <div class="method-source-code" id="owner_aware_edit_image_path-source">
             <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_edit_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
+  <span class="ruby-comment">#if owner.class.to_s == 'Article'</span>
     <span class="ruby-identifier">edit_article_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">edit_project_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#else</span>
+  <span class="ruby-comment">#  edit_project_image_path owner, image</span>
+  <span class="ruby-comment">#end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- owner_aware_edit_image_path-source -->
           
@@ -208,11 +208,11 @@ are possibly owned by two classes</p>
           <div class="method-source-code" id="owner_aware_images_path-source">
             <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_images_path</span> <span class="ruby-identifier">owner</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
+  <span class="ruby-comment">#if owner.class.to_s == 'Article'</span>
     <span class="ruby-identifier">article_images_path</span> <span class="ruby-identifier">owner</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">project_images_path</span> <span class="ruby-identifier">owner</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#else</span>
+  <span class="ruby-comment">#  project_images_path owner</span>
+  <span class="ruby-comment">#end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- owner_aware_images_path-source -->
           
@@ -242,11 +242,11 @@ are possibly owned by two classes</p>
           <div class="method-source-code" id="owner_aware_new_image_path-source">
             <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_new_image_path</span> <span class="ruby-identifier">owner</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
+  <span class="ruby-comment">#if owner.class.to_s == 'Article'</span>
     <span class="ruby-identifier">new_article_image_path</span> <span class="ruby-identifier">owner</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">new_project_image_path</span> <span class="ruby-identifier">owner</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#else</span>
+  <span class="ruby-comment">#  new_project_image_path owner</span>
+  <span class="ruby-comment">#end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- owner_aware_new_image_path-source -->
           
