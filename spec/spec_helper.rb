@@ -11,6 +11,7 @@ SimpleCov.start do
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
   add_group 'Views', 'app/views'
+  add_group 'Uploaders', 'app/uploaders'
 end if ENV['COVERAGE']
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
