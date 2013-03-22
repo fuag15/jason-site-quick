@@ -191,8 +191,8 @@ href="ContactMailer.html#method-i-contact">ContactMailer#contact</a></p>
           <div class="method-source-code" id="submit-source">
             <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">submit</span>
-  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">params</span>
-  <span class="ruby-constant">ContactMailer</span>.<span class="ruby-identifier">contact</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:text</span>]).<span class="ruby-identifier">deliver</span>
+  <span class="ruby-identifier">local_params</span> = <span class="ruby-identifier">params</span>
+  <span class="ruby-constant">ContactMailer</span>.<span class="ruby-identifier">contact</span>(<span class="ruby-identifier">local_params</span>[<span class="ruby-value">:from</span>], <span class="ruby-identifier">local_params</span>[<span class="ruby-value">:text</span>]).<span class="ruby-identifier">deliver</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">contact_pages_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Contact mail sent'</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- submit-source -->

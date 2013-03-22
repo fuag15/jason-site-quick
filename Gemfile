@@ -27,6 +27,7 @@ group :test, :development do
   gem 'forgery', '~> 0.5.0' # fake string values randomly with order!
   gem 'debugger', '~> 1.5.0' # ruby debugg generalist tool
   gem 'pry', '~> 0.9.12' # ruby runtime introspection
+  gem 'pry-remote', '~> 0.1.7' # pry for remote processes
   gem 'rspec-rails', '~> 2.13.0' # unit tests for models / routes
   gem 'factory_girl_rails', '~> 4.2.1' # model factories
   gem 'capybara', '~> 2.0.2' # headless browser tests

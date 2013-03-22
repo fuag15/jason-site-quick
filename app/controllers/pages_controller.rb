@@ -10,8 +10,8 @@ class PagesController < ApplicationController
   # this method handles input from the contact form
   # shoots off a mail from ContactMailer#contact
   def submit
-    params = params
-    ContactMailer.contact(params[:from], params[:text]).deliver
+    local_params = params
+    ContactMailer.contact(local_params[:from], local_params[:text]).deliver
     redirect_to contact_pages_path, notice: 'Contact mail sent'
   end
 end

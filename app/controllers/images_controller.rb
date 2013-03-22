@@ -3,63 +3,24 @@
 class ImagesController < ApplicationController
   load_and_authorize_resource
   respond_to :html
-  before_filter :load_owner
+  before_filter :load_owner, exept: :destroy
 
   # create and return to a smart path based on our parent
   def create
-    respond_with @image do |format|
-      if @image.save
-        format.html { redirect_to [@owner, @image], notice: 'Image Created' }
-      else
-        format.html do
-          redirect_to :back, error: @image.error
-        end
-      end
-    end
+    flash[:notice] = 'Image Created' if @image.save!
+    respond_with @owner, @image
   end
 
   # update and return to a smart path based on our parent
   def update
-    respond_with @image do |format|
-      if @image.update_attributes! params[:image]
-        format.html { redirect_to [@owner, @image], notice: 'Image Successfully updated' }
-      else
-        format.html do
-          redirect_to :back, error: @image.error
-        end
-      end
-    end
-  end
-
-  # show smartly based on our parents
-  def show
-    respond_with @image do |format|
-      if @image.blank?
-        format.html do
-          redirect_to :back, error: 'Image not found'
-        end
-      end
-    end
+    flash[:notice] = 'Image Successfully updated' if @image.update_attributes! params[:image]
+    respond_with @image.owner, @image
   end
 
   # destroy and return to our parents image index path
   def destroy
-    respond_with @image do |format|
-      if @image and @image.destroy
-        format.html do
-          flash[:notice] = 'Image Successfully Deleted'
-          if params[:project_id].blank?
-            redirect_to article_images_path @owner
-          else
-            redirect_to project_images_path @owner
-          end
-        end
-      else
-        format.html do
-          redirect_to :back, error: 'Image not found'
-        end
-      end
-    end
+    flash[:notice] = 'Image Successfully Deleted' if @image.destroy
+    respond_with @image.owner, @image
   end
 
   protected
@@ -67,10 +28,7 @@ class ImagesController < ApplicationController
     # so here we do some introspection on how we were called
     # and set the right parent to Article or Project
     def load_owner
-      if params[:project_id].blank?
-        @owner = Article.find params[:article_id]
-      else
-        @owner = Project.find params[:project_id]
-      end
+      local_params = params
+      @owner = Article.find(local_params[:article_id]) or Project.find local_params[:project_id]
     end
 end

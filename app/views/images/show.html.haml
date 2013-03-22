@@ -6,4 +6,4 @@
   .btn-group.pull-left
     = link_to 'back', owner_aware_images_path(@owner), class: 'btn'
     = link_to 'edit', owner_aware_edit_image_path(@owner, @image), class: 'btn btn-primary'
-= button_to 'destroy', [@owner, @image], method: :delete, class: 'btn btn-danger pull-right'
+= button_to 'destroy', [@image.owner, @image], method: :delete, class: 'btn btn-danger pull-right'
