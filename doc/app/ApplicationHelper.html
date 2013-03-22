@@ -130,6 +130,9 @@
 
   <div id="description" class="description">
     
+<p>class for heling all views in the application helps determine what route is
+active as well as what class is appropriate in bootstrap for a rails flash</p>
+
   </div><!-- description -->
 
   
@@ -167,19 +170,15 @@ types</p>
 
           
           <div class="method-source-code" id="bootstrap_class_for-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">bootstrap_class_for</span> <span class="ruby-identifier">flash_type</span>
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">flash_type</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:success</span>
-      <span class="ruby-string">&quot;alert-success&quot;</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-value">:error</span>
-      <span class="ruby-string">&quot;alert-error&quot;</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">:alert</span>
-      <span class="ruby-string">&quot;alert-block&quot;</span>
+      <span class="ruby-string">'alert-block'</span>
     <span class="ruby-keyword">when</span> <span class="ruby-value">:notice</span>
-      <span class="ruby-string">&quot;alert-info&quot;</span>
+      <span class="ruby-string">'alert-info'</span>
     <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">flash_type</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-node">&quot;alert-#{flash_type}&quot;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- bootstrap_class_for-source -->
@@ -212,17 +211,9 @@ _navigation.haml partial</p>
 
           
           <div class="method-source-code" id="nav_class-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nav_class</span> <span class="ruby-identifier">controller_needed</span>, <span class="ruby-identifier">action_needed</span>=<span class="ruby-keyword">nil</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">controller_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">controller_needed</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">action_needed</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">action_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">action_needed</span>
-        <span class="ruby-string">'active'</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-string">'active'</span>
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-string">'active'</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">controller_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">controller_needed</span> <span class="ruby-keyword">and</span> ( <span class="ruby-identifier">action_needed</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">action_name</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">action_needed</span>.<span class="ruby-identifier">blank?</span> )
 <span class="ruby-keyword">end</span></pre>
           </div><!-- nav_class-source -->
           

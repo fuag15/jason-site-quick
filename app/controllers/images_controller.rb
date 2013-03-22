@@ -4,6 +4,8 @@ class ImagesController < ApplicationController
   load_and_authorize_resource
   respond_to :html
   before_filter :load_owner
+
+  # create and return to a smart path based on our parent
   def create
     respond_with @image do |format|
       if @image.save
@@ -16,6 +18,7 @@ class ImagesController < ApplicationController
     end
   end
 
+  # update and return to a smart path based on our parent
   def update
     respond_with @image do |format|
       if @image.update_attributes! params[:image]
@@ -28,6 +31,7 @@ class ImagesController < ApplicationController
     end
   end
 
+  # show smartly based on our parents
   def show
     respond_with @image do |format|
       if @image.blank?
@@ -38,6 +42,7 @@ class ImagesController < ApplicationController
     end
   end
 
+  # destroy and return to our parents image index path
   def destroy
     respond_with @image do |format|
       if @image and @image.destroy

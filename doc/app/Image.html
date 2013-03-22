@@ -184,9 +184,9 @@ is owned by an article</p>
 
           
           <div class="method-source-code" id="owner-source">
-            <pre><span class="ruby-comment"># File app/models/image.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/models/image.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">article</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">project</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">article</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- owner-source -->
           

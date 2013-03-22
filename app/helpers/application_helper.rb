@@ -1,3 +1,6 @@
+# class for heling all views in the application
+# helps determine what route is active as well as
+# what class is appropriate in bootstrap for a rails flash
 module ApplicationHelper
   # helper class to return the right bootstrap display class for rails flash types
   def bootstrap_class_for flash_type

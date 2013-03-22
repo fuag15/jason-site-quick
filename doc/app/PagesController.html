@@ -70,12 +70,6 @@
 
   <ul class="link-list">
     
-    <li><a href="#method-i-about">#about</a>
-    
-    <li><a href="#method-i-contact">#contact</a>
-    
-    <li><a href="#method-i-index">#index</a>
-    
     <li><a href="#method-i-submit">#submit</a>
     
   </ul>
@@ -155,7 +149,7 @@
 <p>Simple about spage</p>
 </dd></dl>
 
-<p><a href="PagesController.html#method-i-contact">contact</a> uses <a
+<p>contact uses <a
 href="ContactMailer.html#method-i-contact">ContactMailer#contact</a></p>
 
   </div><!-- description -->
@@ -178,93 +172,6 @@ href="ContactMailer.html#method-i-contact">ContactMailer#contact</a></p>
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-about" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">about</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="about-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">about</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- about-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- about-method -->
-
-    
-      <div id="method-i-contact" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">contact</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="contact-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">contact</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- contact-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- contact-method -->
-
-    
-      <div id="method-i-index" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">index</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- index-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- index-method -->
-
-    
       <div id="method-i-submit" class="method-detail ">
         
         <div class="method-heading">
@@ -276,16 +183,17 @@ href="ContactMailer.html#method-i-contact">ContactMailer#contact</a></p>
 
         <div class="method-description">
           
-          
+          <p>this method handles input from the contact form shoots off a mail from <a
+href="ContactMailer.html#method-i-contact">ContactMailer#contact</a></p>
           
 
           
           <div class="method-source-code" id="submit-source">
-            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/controllers/pages_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">submit</span>
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">params</span>
   <span class="ruby-constant">ContactMailer</span>.<span class="ruby-identifier">contact</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:text</span>]).<span class="ruby-identifier">deliver</span>
-  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Contact mail sent'</span>
-  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">contact_pages_path</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">contact_pages_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Contact mail sent'</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- submit-source -->
           

@@ -132,6 +132,10 @@
 
   <div id="description" class="description">
     
+<p>this module helpes <a href="Image.html">Image</a> Pages by smartly
+determining the route for an images owner this is required because images
+are possibly owned by two classes</p>
+
   </div><!-- description -->
 
   
@@ -168,7 +172,7 @@
 
           
           <div class="method-source-code" id="owner_aware_edit_image_path-source">
-            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_edit_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
     <span class="ruby-identifier">edit_article_image_path</span> <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">image</span>
@@ -202,7 +206,7 @@
 
           
           <div class="method-source-code" id="owner_aware_images_path-source">
-            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_images_path</span> <span class="ruby-identifier">owner</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
     <span class="ruby-identifier">article_images_path</span> <span class="ruby-identifier">owner</span>
@@ -236,7 +240,7 @@
 
           
           <div class="method-source-code" id="owner_aware_new_image_path-source">
-            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 24</span>
+            <pre><span class="ruby-comment"># File app/helpers/image_helper.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owner_aware_new_image_path</span> <span class="ruby-identifier">owner</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Article'</span>
     <span class="ruby-identifier">new_article_image_path</span> <span class="ruby-identifier">owner</span>

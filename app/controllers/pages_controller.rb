@@ -7,18 +7,11 @@
 class PagesController < ApplicationController
   skip_authorization_check
 
-  def index
-  end
-
-  def contact
-  end
-
+  # this method handles input from the contact form
+  # shoots off a mail from ContactMailer#contact
   def submit
     params = params
     ContactMailer.contact(params[:from], params[:text]).deliver
     redirect_to contact_pages_path, notice: 'Contact mail sent'
-  end
-
-  def about
   end
 end

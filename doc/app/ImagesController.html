@@ -176,26 +176,19 @@ and <a href="Project.html">Project</a> otherwise it is standard crud</p>
 
         <div class="method-description">
           
-          
+          <p>create and return to a smart path based on our parent</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@image</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">save</span>
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Image Created'</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> [<span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>] }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> [<span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>], <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Image Created'</span> }
     <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">error</span>
-
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-keyword">do</span>
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:project_id</span>].<span class="ruby-identifier">blank?</span>
-          <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_article_image_path</span> <span class="ruby-ivar">@owner</span>
-        <span class="ruby-keyword">else</span>
-          <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">new_project_image_path</span> <span class="ruby-ivar">@owner</span>
-        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">error</span>
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
@@ -221,17 +214,17 @@ and <a href="Project.html">Project</a> otherwise it is standard crud</p>
 
         <div class="method-description">
           
-          
+          <p>destroy and return to our parents image index path</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 62</span>
+            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@image</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@image</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">destroy</span>
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Image Successfully Deleted'</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-keyword">do</span> 
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Image Successfully Deleted'</span>
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:project_id</span>].<span class="ruby-identifier">blank?</span>
           <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">article_images_path</span> <span class="ruby-ivar">@owner</span>
         <span class="ruby-keyword">else</span>
@@ -239,7 +232,9 @@ and <a href="Project.html">Project</a> otherwise it is standard crud</p>
         <span class="ruby-keyword">end</span>
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">'Image not found'</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">'Image not found'</span>
+      <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -264,23 +259,17 @@ and <a href="Project.html">Project</a> otherwise it is standard crud</p>
 
         <div class="method-description">
           
-          
+          <p>show smartly based on our parents</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@image</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">blank?</span>
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-string">'Image not found'</span>
-
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-keyword">do</span>
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:project_id</span>].<span class="ruby-identifier">blank?</span>
-          <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">article_images_path</span> <span class="ruby-ivar">@owner</span>
-        <span class="ruby-keyword">else</span>
-          <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">project_images_path</span> <span class="ruby-ivar">@owner</span>
-        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">'Image not found'</span>
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
@@ -306,26 +295,19 @@ and <a href="Project.html">Project</a> otherwise it is standard crud</p>
 
         <div class="method-description">
           
-          
+          <p>update and return to a smart path based on our parent</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@image</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">update_attributes!</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:image</span>]
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Image Succesfully updated'</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> [<span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>] }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> [<span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>], <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Image Successfully updated'</span> }
     <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:error</span>] = <span class="ruby-identifier">image</span>.<span class="ruby-identifier">error</span>
-
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-keyword">do</span>
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:project_id</span>].<span class="ruby-identifier">blank?</span>
-          <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_article_image_path</span> <span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>
-        <span class="ruby-keyword">else</span>
-          <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_project_image_path</span> <span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>
-        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">error</span>
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
@@ -364,7 +346,7 @@ href="Article.html">Article</a> or <a href="Project.html">Project</a></p>
 
           
           <div class="method-source-code" id="load_owner-source">
-            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 83</span>
+            <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">load_owner</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:project_id</span>].<span class="ruby-identifier">blank?</span>
     <span class="ruby-ivar">@owner</span> = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:article_id</span>]

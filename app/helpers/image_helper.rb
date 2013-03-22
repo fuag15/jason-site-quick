@@ -1,3 +1,6 @@
+# this module helpes Image Pages by
+# smartly determining the route for an images owner
+# this is required because images are possibly owned by two classes
 module ImageHelper
   # return the right edit path
   # since we are multi using this model
