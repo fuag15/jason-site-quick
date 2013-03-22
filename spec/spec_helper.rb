@@ -5,13 +5,13 @@ SimpleCov.start do
   add_filter '/config/'
   add_filter '/lib/'
   add_filter '/vendor/'
+  add_filter '/app/uploaders'
 
   add_group 'Controllers', 'app/controllers'
   add_group 'Models', 'app/models'
   add_group 'Helpers', 'app/helpers'
   add_group 'Mailers', 'app/mailers'
   add_group 'Views', 'app/views'
-  add_group 'Uploaders', 'app/uploaders'
 end if ENV['COVERAGE']
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
@@ -40,4 +40,7 @@ RSpec.configure do |config|
 
   # include user helper for features login / logout
   config.include FeatureUserHelper, type: :feature
+
+  # include our carrierwave stubbing out upload dir
+  config.include CarrierWaveStub
 end
