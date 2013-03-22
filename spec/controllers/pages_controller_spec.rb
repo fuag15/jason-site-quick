@@ -39,4 +39,14 @@ describe PagesController do
       expect(response).to render_template 'about'
     end
   end
+
+  describe 'POST submit' do
+    before :each do
+      post :submit, from: Forgery(:internet).email_address, text: Forgery(:lorem_ipsum).words
+    end
+
+    it 'should redirect to contact' do
+      expect(response).to redirect_to contact_path
+    end
+  end
 end
