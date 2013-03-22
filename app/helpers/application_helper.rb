@@ -1,17 +1,13 @@
-module ApplicationHelper  
+module ApplicationHelper
   # helper class to return the right bootstrap display class for rails flash types
   def bootstrap_class_for flash_type
     case flash_type
-      when :success
-        'alert-success'
-      when :error
-        'alert-error'
       when :alert
         'alert-block'
       when :notice
         'alert-info'
       else
-        flash_type.to_s
+        "alert-#{flash_type}"
     end
   end
 
@@ -20,14 +16,6 @@ module ApplicationHelper
   # or a controller and action combo in which case it will test against a narrower scope
   # used in our _navigation.haml partial
   def nav_class controller_needed, action_needed=nil
-    if controller_name == controller_needed
-      if action_needed
-        if action_name == action_needed
-          'active'
-        end
-      else
-        'active'
-      end
-    end
+    'active' if controller_name == controller_needed and ( action_needed == action_name or action_needed.blank? )
   end
 end

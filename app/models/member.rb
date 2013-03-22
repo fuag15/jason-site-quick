@@ -1,5 +1,5 @@
 # This class is used to associate members of projects
-# they give their real life name and get associated to what 
+# they give their real life name and get associated to what
 # project they worked on with midgard productions
 #
 # [name]  Real World Name

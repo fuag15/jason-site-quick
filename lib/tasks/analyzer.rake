@@ -23,7 +23,7 @@ namespace :analyzer do
   desc 'run rails_best_practices and inform about found issues'
   task :rails_best_practices do
     message :info, 'Running rails_best_practices and inform about found issues'
-    puts `rails_best_practices app`
+    puts `rails_best_practices`
   end
 
   desc 'run flog and find the most tortured code'

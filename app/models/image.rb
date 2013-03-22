@@ -1,7 +1,6 @@
 # this is our image class for blog posts and projects, it has 3 attributes
 # [file]    Where we will mount ImageUploader
 # [name]    A string designation for this picture
-# 
 # This record belongs_to Article
 # This record belongs_to Project
 class Image < ActiveRecord::Base
@@ -14,6 +13,6 @@ class Image < ActiveRecord::Base
   # returns a project instance if this is owned by a project
   # returns an article instance if this is owned by an article
   def owner
-    self.project ? self.project : self.article
+    self.project or self.article
   end
 end

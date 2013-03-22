@@ -1,8 +1,7 @@
 Mildwurm::Application.routes.draw do
   devise_for :users
-  
-  resources :articles do
-    resources :images
+  resources :articles, only: [:index, :create, :new, :edit, :show, :update, :destroy] do
+    resources :images, only: [:index, :create, :new, :edit, :show, :update, :destroy]
   end
 
   match '/contact' => 'pages#contact'

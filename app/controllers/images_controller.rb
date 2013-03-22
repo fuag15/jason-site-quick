@@ -4,7 +4,6 @@ class ImagesController < ApplicationController
   load_and_authorize_resource
   respond_to :html
   before_filter :load_owner
-  
   def create
     respond_with @image do |format|
       if @image.save
@@ -42,7 +41,7 @@ class ImagesController < ApplicationController
   def destroy
     respond_with @image do |format|
       if @image and @image.destroy
-        format.html do 
+        format.html do
           flash[:notice] = 'Image Successfully Deleted'
           if params[:project_id].blank?
             redirect_to article_images_path @owner
@@ -51,7 +50,7 @@ class ImagesController < ApplicationController
           end
         end
       else
-        format.html do 
+        format.html do
           redirect_to :back, error: 'Image not found'
         end
       end
