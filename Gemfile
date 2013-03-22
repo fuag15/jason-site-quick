@@ -12,6 +12,11 @@ gem 'devise', '~> 2.2.3' # user management
 gem 'cancan', '~> 1.6.9' # route access control
 gem 'foreman', '~> 0.62.0' # manage start commend for heroku
 gem 'sass-rails', '~> 3.2.3' # sass interpretation
+gem 'term-ansicolor', '~> 1.1.1' # dependency of analyzer rake task
+gem 'flog', '~> 3.2.2' # how complex is our code
+gem 'flay', '~> 2.1.0' # how much does our code repeat itself
+gem 'rails_best_practices', '~> 1.13.4' # how close are we to standards
+gem 'reek', '~> 1.3.1' # how smelly are we
 
 group :assets do
   gem 'bootstrap-sass', '~> 2.3.0.1' # twitter bootstrap
@@ -33,9 +38,4 @@ group :test, :development do
   gem 'capybara', '~> 2.0.2' # headless browser tests
   gem 'launchy', '~> 2.2.0' # auto launch web page for capybara tests
   gem 'database_cleaner', '~> 0.9.1' # clean out databases between tests
-  gem 'term-ansicolor', '~> 1.1.1' # dependency of analyzer rake task
-  gem 'flog', '~> 3.2.2' # how complex is our code
-  gem 'flay', '~> 2.1.0' # how much does our code repeat itself
-  gem 'rails_best_practices', '~> 1.13.4' # how close are we to standards
-  gem 'reek', '~> 1.3.1' # how smelly are we
 end
