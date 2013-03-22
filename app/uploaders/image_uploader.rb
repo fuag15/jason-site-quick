@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # this uploader is used to mount images on
 # - Article
 # - Project
