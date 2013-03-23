@@ -12,4 +12,9 @@ namespace :doc do
     rdoc.rdoc_files.include 'app/**/*.rb', 'lib/**/*.rb', 'doc/README.rdoc'
     rdoc.main = 'doc/README.rdoc'
   end
+
+  desc 'Load a browser of the rdoc'
+  task :view do
+    sh 'launchy doc/app/index.html'
+  end
 end

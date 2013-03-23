@@ -4,4 +4,9 @@ namespace :spec do
     ENV['COVERAGE'] = 'true'
     Rake::Task['spec'].execute
   end
+
+  desc 'View Coverage Reports'
+  task :view do
+    sh 'launchy coverage/index.html'
+  end
 end

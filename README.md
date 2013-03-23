@@ -1,10 +1,10 @@
 #Jason's Midgard Production Portfolio Site
 
-Site to demo Midgar Productions projects etc, server urls to come
+Site to demo Midgard Productions projects
 
 ##Detailed Docs
 
-- Once you have the app up localy rdocs can be found [here][local-rdoc]
+- install and `rake doc:view`
 - [New to rails?][rails-rdoc]
 
 ##Local Install

@@ -12,22 +12,16 @@ Site to demo Midgar Productions projects etc
 
 ===Testing
 
-- rake rspec
-- rake rspec:coverage
+- rake spec
+- rake spec:coverage
 - rake analyzer:all
+- rake spec:view
 
 ====Coverage Report
 
-- see coverage[link:../../coverage]
+- see coverage[link:../coverage/index.html]
 
 ===Doccing
 
 - rake doc:reapp
-
-==Roadmap
-
-- Basic site with crud functionality
-- Vimeo rating / viewer in d3.js -> gem
-- markdown for articles -> redcarpet2 with extensions
-- Front end design
-- Work with jason on hosting
+- rake doc:view
