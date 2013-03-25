@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'articles/edit' do
-  before :each do
+  before do
     article = FactoryGirl.create :article
     assign :article, article
     render
@@ -13,7 +13,7 @@ describe 'articles/edit' do
 end
 
 describe 'articles/new' do
-  before :each do
+  before do
     article = FactoryGirl.create :article
     assign :article, article
     render

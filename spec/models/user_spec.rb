@@ -14,7 +14,7 @@ describe User do
 
   describe 'abilities' do
     context 'when I am an admin' do
-      before :each do
+      before do
         @user = FactoryGirl.create :user, role: 'admin'
       end
 
@@ -28,7 +28,7 @@ describe User do
     end
 
     context 'when I am not an admin' do
-      before :each do
+      before do
         @user = FactoryGirl.create :user
       end
 

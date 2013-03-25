@@ -3,18 +3,18 @@
 class ImagesController < ApplicationController
   load_and_authorize_resource
   respond_to :html
-  before_filter :load_owner, exept: :destroy
+  before_filter :load_owner, except: [:destroy, :show, :edit]
 
   # create and return to a smart path based on our parent
   def create
-    flash[:notice] = 'Image Created' if @image.save!
+    flash[:notice] = 'Image Created' if @owner.images << @image
     respond_with @owner, @image
   end
 
   # update and return to a smart path based on our parent
   def update
     flash[:notice] = 'Image Successfully updated' if @image.update_attributes! params[:image]
-    respond_with @image.owner, @image
+    respond_with @owner, @image
   end
 
   # destroy and return to our parents image index path

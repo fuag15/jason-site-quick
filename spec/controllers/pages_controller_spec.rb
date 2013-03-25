@@ -41,7 +41,7 @@ describe PagesController do
   end
 
   describe 'POST submit' do
-    before :each do
+    before do
       post :submit, from: Forgery(:internet).email_address, text: Forgery(:lorem_ipsum).words
     end
 

@@ -181,7 +181,7 @@ and <a href="Project.html">Project</a> otherwise it is standard crud</p>
           <div class="method-source-code" id="create-source">
             <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Image Created'</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Image Created'</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@owner</span>.<span class="ruby-identifier">images</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@image</span>
   <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- create-source -->
@@ -244,7 +244,7 @@ and <a href="Project.html">Project</a> otherwise it is standard crud</p>
             <pre><span class="ruby-comment"># File app/controllers/images_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Image Successfully updated'</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">update_attributes!</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:image</span>]
-  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@image</span>.<span class="ruby-identifier">owner</span>, <span class="ruby-ivar">@image</span>
+  <span class="ruby-identifier">respond_with</span> <span class="ruby-ivar">@owner</span>, <span class="ruby-ivar">@image</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- update-source -->
           

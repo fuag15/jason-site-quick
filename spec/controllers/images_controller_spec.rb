@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ImagesController do
-  before :each do
+  before do
     @image = FactoryGirl.create :image_with_article
   end
 
@@ -27,7 +27,7 @@ describe ImagesController do
 
   describe 'GET new' do
     context 'when signed in as admin' do
-      before :each do
+      before do
         auth_admin
       end
 
@@ -61,11 +61,19 @@ describe ImagesController do
     end
 
     context 'when signed in as admin' do
-      it 'creates article' do 
+      before do
         auth_admin
+      end
+
+      it 'creates article' do 
         expect{
           post :create, article_id: @image.article, image: FactoryGirl.attributes_for(:image)
         }.to change(Image,:count).by 1
+      end
+
+      it 'creates an article that has the right owner' do
+        post :create, article_id: @image.article, image: FactoryGirl.attributes_for(:image)
+        expect(Image.last.article).to eq @image.article
       end
     end
   end
@@ -80,7 +88,7 @@ describe ImagesController do
     end
 
     context 'when signed in as admin' do
-      before :each do
+      before do
         auth_admin
         get :edit, article_id: @image.article, id: @image
       end
@@ -97,7 +105,7 @@ describe ImagesController do
   end
 
   describe 'POST update' do
-    before :each do
+    before do
       @new_attr = FactoryGirl.attributes_for :image
     end
 
@@ -110,7 +118,7 @@ describe ImagesController do
     end
 
     context 'when signed in as admin' do
-      before :each do
+      before do
         auth_admin
       end
 
@@ -123,7 +131,7 @@ describe ImagesController do
   end
 
   describe 'GET show' do
-    before :each do
+    before do
       get :show, article_id: @image.article, id: @image
     end
 
@@ -147,7 +155,7 @@ describe ImagesController do
     end
 
     context 'when an admin user is logged in' do
-      before :each do
+      before do
         auth_admin
       end
 

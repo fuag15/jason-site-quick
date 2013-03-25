@@ -6,12 +6,12 @@ RSpec.configure do |config|
   end
 
   # clean databases
-  config.before :each do
+  config.before do
     DatabaseCleaner.start
   end
 
   # more cleaning
-  config.after :each do
+  config.after do
     DatabaseCleaner.clean
   end
 

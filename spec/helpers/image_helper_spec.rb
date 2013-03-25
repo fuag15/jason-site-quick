@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ImageHelper do
-  before :each do
+  before do
     @article_image = FactoryGirl.create :image_with_article
     #@project_image = FactoryGirl.create :image_with_project
     @article = @article_image.article

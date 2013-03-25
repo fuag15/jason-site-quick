@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ApplicationHelper do
   describe '#nav_class' do
-    before :each do
+    before do
       helper.stub!(:action_name).and_return 'index'
       helper.stub!(:controller_name).and_return 'pages'
     end
