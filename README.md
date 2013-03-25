@@ -14,6 +14,7 @@ This package is set up to use some external tools:
 - [git-flow][git-flow]
 - [rvm][rvm]
 - [postgresql][postgresql]
+- [qt][qt-website]
 
 First you will need to set up a postgresql user for the database:
 
@@ -56,3 +57,4 @@ You should be able to view the site on `localhost:3000`, or [here][local-host]
 [git-flow]: http://github.com/nvie/gitflow "Git-flow plugin page"
 [local-rdoc]: http://localhost:3001/doc/app "Local generated rdoc"
 [rails-rdoc]: rails_primer.rdoc "Local rails default doc"
+[qt-website]: http://qt-project.org "Qt Official Project Page"
