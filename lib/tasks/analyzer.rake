@@ -9,9 +9,9 @@ Reek::Rake::Task.new do |t|
 end
 
 namespace :analyzer do
-  desc 'run all code analyzing tools (reek, rails_best_practices, flog, flay)'
-  task all: [:reek, :rails_best_practices, :flog, :flay] do
-    message :info, 'have been running all code analyzing tools'
+  desc 'run all code analyzing tools (reek, rails_best_practices, flog, flay, roodi)'
+  task all: [:reek, :rails_best_practices, :flog, :flay, :roodi] do
+    message :info, 'all code analyzing tools ran'
   end
 
   desc 'run reek and find code smells'
@@ -34,8 +34,14 @@ namespace :analyzer do
 
   desc 'run flay and analyze code for structural similarities'
   task :flay do
-    message :info, 'Running flay and and analyze code for structural similarities'
+    message :info, 'Running flay and analyzing code for structural similarities'
     sh 'flay app/*'
+  end
+
+  desc 'run roodi and analyze all app code for cyclomatic complexity'
+  task :roodi do
+    message :info, 'Running roodi and analyzing code for cyclomatic complexity'
+    sh 'roodi -config=config/roodi.yml ./app/**/*.rb'
   end
 end
 

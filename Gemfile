@@ -27,6 +27,7 @@ end
 
 group :test, :development do
   gem 'simplecov', '~> 0.7.1' # code coverage
+  gem 'roodi', '~> 2.1.0' # cyclomatic complexity
   gem 'awesome_print', '~> 1.1.0' # better irb printing
   gem 'cheat', '~> 1.3.3' # quick spec lookup
   gem 'forgery', '~> 0.5.0' # fake string values randomly with order!
