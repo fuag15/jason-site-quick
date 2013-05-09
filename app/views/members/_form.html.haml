@@ -1,0 +1,5 @@
+= form_for [project, member], html: { multipart: true } do |f|
+  = render partial: 'shared/form_error', collection: member.errors.full_messages
+  %p
+    = f.text_field :name
+  = f.submit class: 'btn btn-primary'

@@ -1,0 +1,13 @@
+%h2
+  Members
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        name
+  %tbody
+    - @members.each do |member|
+      %tr
+        %td
+          = link_to member.name, [member.project, member]
+= link_to 'create member', new_project_member_path(@project), class: 'btn btn-primary'

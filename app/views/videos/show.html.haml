@@ -1,0 +1,13 @@
+%p
+  = @video.aspect
+%p
+  = @video.name
+%p
+  = @video.rank
+%p
+  %iframe{ allowfullscreen: true, frameborder: "0", height: "281", mozallowfullscreen: true, src: "#{@video.url}", webkitallowfullscreen: true, width: "500" }
+%p
+  .btn-group.pull-left
+    = link_to 'back', owner_aware_videos_path(@video.owner), class: 'btn'
+    = link_to 'edit', owner_aware_edit_video_path(@video.owner, @video), class: 'btn btn-primary'
+= button_to 'destroy', [@video.owner, @video], method: :delete, class: 'btn btn-danger pull-right'

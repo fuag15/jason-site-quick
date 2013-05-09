@@ -11,5 +11,7 @@
             = link_to 'Contact', contact_path
           %li{ class: nav_class( 'articles' ) }
             = link_to 'Blog', articles_path
+          %li{ class: nav_class( 'projects' ) }
+            = link_to 'Projects', projects_path
       %p.navbar-text.pull-right
         = render partial: 'layouts/session_control'

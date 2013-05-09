@@ -1,10 +1,11 @@
 %p
   = @article.name
 %p
-  = @article.content
+  = markdown @article.content
 %p
   .btn-group.pull-left
     = link_to 'back', articles_path, class: 'btn'
     = link_to 'edit', edit_article_path(@article), class: 'btn btn-primary'
     = link_to 'images', article_images_path(@article), class: 'btn'
+    = link_to 'videos', article_videos_path(@article), class: 'btn'
 = button_to 'destroy', @article, method: :delete, class: 'btn btn-danger pull-right'

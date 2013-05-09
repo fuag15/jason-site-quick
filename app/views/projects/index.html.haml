@@ -1,0 +1,17 @@
+%h2
+  Projects
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        name
+      %th
+        content
+  %tbody
+    - @projects.each do |project|
+      %tr
+        %td
+          = link_to project.name, project
+        %td
+          = truncate project.content
+= link_to 'create project', new_project_path, class: 'btn btn-primary'

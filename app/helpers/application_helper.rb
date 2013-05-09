@@ -21,4 +21,11 @@ module ApplicationHelper
   def nav_class controller_needed, action_needed=nil
     'active' if controller_name == controller_needed and ( action_needed == action_name or action_needed.blank? )
   end
+
+  # Set up a helper to render red carpet markdown for some posting items
+  # uses redcarpet2
+  def markdown text
+    markdown = Redcarpet::Markdown.new HTMLWithVideos, autolink: true, space_after_headers: true
+    return markdown.render(text).html_safe
+  end
 end
