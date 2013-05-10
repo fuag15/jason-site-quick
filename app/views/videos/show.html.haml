@@ -5,7 +5,7 @@
 %p
   = @video.rank
 %p
-  %iframe{ allowfullscreen: true, frameborder: "0", height: "281", mozallowfullscreen: true, src: "#{@video.url}", webkitallowfullscreen: true, width: "500" }
+  = iframe @video
 %p
   .btn-group.pull-left
     = link_to 'back', owner_aware_videos_path(@video.owner), class: 'btn'

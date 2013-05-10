@@ -25,7 +25,12 @@ module ApplicationHelper
   # Set up a helper to render red carpet markdown for some posting items
   # uses redcarpet2
   def markdown text
-    markdown = Redcarpet::Markdown.new HTMLWithVideos, autolink: true, space_after_headers: true
+    markdown = Redcarpet::Markdown.new HTMLWithVideos, autolink: true, space_after_headers: true, no_intra_emphasis: true, superscript: true
     return markdown.render(text).html_safe
+  end
+
+  # displays a video imframe link to vimeo, used by Video
+  def iframe video, width=500, height=281
+    "<iframe src='#{video.url}' width='#{width}' height='#{height}' frameborder='0' allowfullscreen webkitallowfullscreen></iframe>".html_safe
   end
 end
