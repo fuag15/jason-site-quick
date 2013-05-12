@@ -10,3 +10,9 @@
       %h4.muted
         Other Videos
       = render 'shared/video_list', videos: Video.all - owner.videos
+      %h4.muted
+        Related Images
+      = render 'shared/image_list', images: owner.images
+      %h4.muted
+        Other Images
+      = render 'shared/image_list', images: Image.all - owner.images

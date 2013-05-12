@@ -15,6 +15,12 @@
     - if Video.first
       %tr
         %td
-          = "__#{Video.first.name}__"
+          = "__video #{Video.first.name}__"
         %td
-          = markdown "__#{Video.first.name}__"
+          = markdown "__video #{Video.first.name}__"
+    - if Image.first
+      %tr
+        %td
+          = "__image #{Image.first.name}__"
+        %td
+          = markdown "__image #{Image.first.name}__"
