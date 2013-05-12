@@ -4,5 +4,6 @@
 # This class also has_many Image
 class Article < ActiveRecord::Base
   has_many :images, dependent: :destroy
+  has_many :videos, dependent: :destroy
   attr_accessible :content, :name
 end

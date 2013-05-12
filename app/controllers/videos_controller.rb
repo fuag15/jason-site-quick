@@ -1,31 +1,31 @@
-# this controller handles images for both Article and Project
+# this controller handles videos for both Article and Project
 # otherwise it is standard crud
-class ImagesController < ApplicationController
+class VideosController < ApplicationController
   load_and_authorize_resource
   respond_to :html
   before_filter :load_owner, except: [:destroy, :show, :edit]
 
-  # narrow our loaded images down
+  # narrow our loaded videos down
   def index
-    @images = @owner.images
+    @videos = @owner.videos
   end
 
   # create and return to a smart path based on our parent
   def create
-    flash[:notice] = 'Image Created' if @owner.images << @image
-    respond_with @owner, @image
+    flash[:notice] = 'Video Created' if @owner.videos << @video
+    respond_with @owner, @video
   end
 
   # update and return to a smart path based on our parent
   def update
-    flash[:notice] = 'Image Successfully updated' if @image.update_attributes! params[:image]
-    respond_with @owner, @image
+    flash[:notice] = 'Video Successfully updated' if @video.update_attributes! params[:video]
+    respond_with @owner, @video
   end
 
-  # destroy and return to our parents image index path
+  # destroy and return to our parents video index path
   def destroy
-    flash[:notice] = 'Image Successfully Deleted' if @image.destroy
-    respond_with @image.owner, @image
+    flash[:notice] = 'Video Successfully Deleted' if @video.destroy
+    respond_with @video.owner, @video
   end
 
   protected

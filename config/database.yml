@@ -54,5 +54,5 @@ production:
   encoding: unicode
   database: mildwurm_production
   pool: 5
-  username: mildwurm
-  password: mildwurm
+  username: mildwurm_production
+  password: dragons

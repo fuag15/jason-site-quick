@@ -1,0 +1,25 @@
+%h2
+  Videos
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        aspect
+      %th
+        name
+      %th
+        rank
+      %th
+        url
+  %tbody
+    - @videos.each do |video|
+      %tr
+        %td
+          = video.aspect
+        %td
+          = link_to video.name, [video.owner, video]
+        %td
+          = video.rank
+        %td
+          = video.url
+= link_to 'create video', owner_aware_new_video_path(@owner), class: 'btn btn-primary'

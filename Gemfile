@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.12' # hardset rails version
 
@@ -12,11 +12,8 @@ gem 'devise', '~> 2.2.3' # user management
 gem 'cancan', '~> 1.6.9' # route access control
 gem 'foreman', '~> 0.62.0' # manage start commend for heroku
 gem 'sass-rails', '~> 3.2.3' # sass interpretation
+gem 'redcarpet', '~> 2.2.2' # markdown parsing
 gem 'term-ansicolor', '~> 1.1.1' # dependency of analyzer rake task
-gem 'flog', '~> 3.2.2' # how complex is our code
-gem 'flay', '~> 2.1.0' # how much does our code repeat itself
-gem 'rails_best_practices', '~> 1.13.4' # how close are we to standards
-gem 'reek', '~> 1.3.1' # how smelly are we
 
 group :assets do
   gem 'bootstrap-sass', '~> 2.3.0.1' # twitter bootstrap
@@ -26,6 +23,10 @@ group :assets do
 end
 
 group :test, :development do
+  gem 'flog', '~> 3.2.2' # how complex is our code
+  gem 'flay', '~> 2.1.0' # how much does our code repeat itself
+  gem 'rails_best_practices', '~> 1.13.4' # how close are we to standards
+  gem 'reek', '~> 1.3.1' # how smelly are we
   gem 'simplecov', '~> 0.7.1' # code coverage
   gem 'roodi', '~> 2.1.0' # cyclomatic complexity
   gem 'awesome_print', '~> 1.1.0' # better irb printing

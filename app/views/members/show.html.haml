@@ -1,0 +1,9 @@
+%p
+  = @member.name
+%p
+  = member_tag @member.file.thumb.url
+%p
+  .btn-group.pull-left
+    = link_to 'back', project_members_path(@member.project), class: 'btn'
+    = link_to 'edit', edit_project_member_path(@member.project, @member), class: 'btn btn-primary'
+= button_to 'destroy', [@member.project, @member], method: :delete, class: 'btn btn-danger pull-right'

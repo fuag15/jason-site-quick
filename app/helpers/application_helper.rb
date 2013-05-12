@@ -21,4 +21,16 @@ module ApplicationHelper
   def nav_class controller_needed, action_needed=nil
     'active' if controller_name == controller_needed and ( action_needed == action_name or action_needed.blank? )
   end
+
+  # Set up a helper to render red carpet markdown for some posting items
+  # uses redcarpet2
+  def markdown text
+    markdown = Redcarpet::Markdown.new HTMLWithVideos, autolink: true, space_after_headers: true, no_intra_emphasis: true, superscript: true
+    return markdown.render(text).html_safe
+  end
+
+  # displays a video imframe link to vimeo, used by Video
+  def iframe video, width=500, height=281
+    "<iframe src='#{video.url}' width='#{width}' height='#{height}' frameborder='0' allowfullscreen webkitallowfullscreen></iframe>".html_safe
+  end
 end
