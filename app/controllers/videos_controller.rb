@@ -2,12 +2,17 @@
 # otherwise it is standard crud
 class VideosController < ApplicationController
   load_and_authorize_resource
-  respond_to :html
+  respond_to :html, :json
   before_filter :load_owner, except: [:destroy, :show, :edit]
 
   # narrow our loaded videos down
   def index
     @videos = @owner.videos
+    respond_with @videos
+  end
+
+  def show
+    respond_with @video
   end
 
   # create and return to a smart path based on our parent
