@@ -1,17 +1,17 @@
-.navbar.navbar-inverse.navbar-fixed-top
-  .navbar-inner
-    .container-fluid
-      .span1
-      .span10
-        = link_to 'Midgard Productions', root_path, class: 'brand'
+.navbar
+  .container-fluid.nav_logo_wrap
+    .span4.logowrap
+      = link_to image_tag('/images/logo_mildwurm2.png', :alt => 'Mildwurm Productions', :id=>"logo_image"), root_path, class: 'brand'
+    .span5
+      .navwrap
         %ul.nav
           %li{ class: nav_class( 'pages', 'about' ) }
-            = link_to 'about', about_path
+            = link_to 'About', about_path
           %li{ class: nav_class( 'pages', 'contact' ) }
             = link_to 'Contact', contact_path
           %li{ class: nav_class( 'articles' ) }
             = link_to 'Blog', articles_path
           %li{ class: nav_class( 'projects' ) }
             = link_to 'Projects', projects_path
-      %p.navbar-text.pull-right
+      .navbar-text.login
         = render partial: 'layouts/session_control'

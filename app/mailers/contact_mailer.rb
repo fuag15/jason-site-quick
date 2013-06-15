@@ -3,7 +3,7 @@
 # has only one mail
 # contact::  Simple contact mail
 class ContactMailer < ActionMailer::Base
-  default from: "contact@midgardproductions.com"
+  default from: "jason@mildwurmproductions.com"
 
   # default sends from contact@midgardproductions.com but auto replies to the sender
   # from::  should be the sender
