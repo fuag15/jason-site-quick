@@ -45,6 +45,7 @@ You should be able to view the site on `localhost:3000`, or [here][local-host]
 ##Roadmap
 
 - Basic site with crud functionality
+- Better project show / showcase, deal with lots of descrip 
 - Vimeo rating / viewer in d3.js -> gem -> jasmin tests, webkit-js-integration, html5, 3js, modernify, docco
 - markdown for articles -> redcarpet2 with extensions
 - Front end design
