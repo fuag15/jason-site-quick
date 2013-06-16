@@ -30,7 +30,12 @@ module ApplicationHelper
   end
 
   # displays a video imframe link to vimeo, used by Video
-  def iframe video, width=500, height=281
+  def iframe video, width=500
+    if video.aspect.present?
+      height = (width * 1.0/video.aspect).to_i
+    else
+      height = 281
+    end
     "<iframe src='#{video.url}' width='#{width}' height='#{height}' frameborder='0' allowfullscreen webkitallowfullscreen></iframe>".html_safe
   end
 end

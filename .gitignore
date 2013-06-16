@@ -16,3 +16,4 @@
 
 # Ignore uploaders
 /public/uploads
+.DS_Store

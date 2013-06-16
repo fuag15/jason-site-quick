@@ -4,7 +4,9 @@
   - if @about.present?
     %p.btn-group
       = link_to 'edit', edit_about_path(@about), class: 'btn btn-primary'
-      = link_to 'manage pictures', about_pictures_path(@about), class: 'btn btn-warning'
+      = link_to 'manage pictures', about_images_path(@about), class: 'btn btn-warning'
   - else
     %p
-      = link_to 'create about', new_about_path, class: 'btn btn-primary'
+      .clearfix
+        .pull-right
+          = link_to 'create about', new_about_path, class: 'btn btn-primary'

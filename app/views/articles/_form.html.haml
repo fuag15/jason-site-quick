@@ -1,7 +1,5 @@
-= form_for article do |f|
+= form_for article, html: { class: 'text-center' } do |f|
   = render partial: 'shared/form_error', collection: article.errors.full_messages
-  %p
-    = f.text_field :name
-  %p
-    = f.text_area :content
+  %p= f.text_field :name, placeholder: 'name', class: 'input-xlarge'
+  %p= f.text_area :content, class: 'input-xxlarge', rows: 15
   = f.submit class: 'btn btn-primary'

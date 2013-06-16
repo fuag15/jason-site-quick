@@ -39,7 +39,7 @@ class ImagesController < ApplicationController
       elsif local_params[:project_id]
         @owner = Project.find local_params[:project_id]
       else
-        @owner = About.find local_params[:project_id]
+        @owner = About.find local_params[:about_id]
       end
     end
 end

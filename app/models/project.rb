@@ -8,7 +8,6 @@
 # has_many Video
 class Project < ActiveRecord::Base
   attr_accessible :content, :name
-
   has_many :images, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :videos, dependent: :destroy

@@ -1,13 +1,10 @@
 %p
   .clearfix
     .pull-right
-      - if project.videos.present
-        = iframe project.videos.first
+      - if project.videos.present?
+        = iframe project.videos.first, 250
     %p
-      - if current_user.try :admin?
-        %strong= link_to project.name, project
-      - else
-        %strong= project.name
+      %strong= link_to_unless_current project.name, project
     = markdown truncate(project.content, length: 35)
   - if current_user.try :admin?
     %p

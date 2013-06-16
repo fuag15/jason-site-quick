@@ -4,15 +4,21 @@
     = render 'shared/markdown_examples'
   .span2
     .well
-      %h4.muted
-        Related Videos
-      = render 'shared/video_list', videos: owner.videos
-      %h4.muted
-        Other Videos
-      = render 'shared/video_list', videos: Video.all - owner.videos
-      %h4.muted
-        Related Images
-      = render 'shared/image_list', images: owner.images
-      %h4.muted
-        Other Images
-      = render 'shared/image_list', images: Image.all - owner.images
+      - if owner.respond_to? 'videos'
+        %h4.muted
+          Related Videos
+        = render 'shared/video_list', videos: owner.videos
+        %h4.muted
+          Other Videos
+        = render 'shared/video_list', videos: Video.all - owner.videos
+      - else
+        %h4.muted
+          Other Videos
+        = render 'shared/video_list', videos: Video.all
+      - if owner.respond_to? 'images'
+        %h4.muted
+          Related Images
+        = render 'shared/image_list', images: owner.images
+        %h4.muted
+          Other Images
+        = render 'shared/image_list', images: Image.all - owner.images

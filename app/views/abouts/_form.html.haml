@@ -1,5 +1,4 @@
-= form_for about do |f|
+= form_for about, html: { class: 'text-center' } do |f|
   = render partial: 'shared/form_error', collection: about.errors.full_messages
-  %p
-    = f.text_area :content
+  %p= f.text_area :content, class: 'input-xxlarge', rows: 15
   = f.submit class: 'btn btn-primary'

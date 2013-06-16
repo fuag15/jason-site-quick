@@ -1,9 +1,6 @@
-= form_for [owner, video], html: { multipart: true } do |f|
+= form_for [owner, video], html: { multipart: true, class: 'text-center' } do |f|
   = render partial: 'shared/form_error', collection: video.errors.full_messages
-  %p
-    = f.text_field :name
-  %p
-    = f.text_field :rank, placeholder: '(lower is higher)'
-  %p
-    = f.text_field :url, placeholder: 'embed link from vimeo'
+  %p= f.text_field :name
+  %p= f.text_field :rank, placeholder: '(highest shows first)'
+  %p= f.text_field :url, placeholder: 'full embed (iframe) link from vimeo'
   = f.submit class: 'btn btn-primary'

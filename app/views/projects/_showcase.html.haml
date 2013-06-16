@@ -1,14 +1,11 @@
 .row-fluid
   .clearfix
-    .span6.pull-left
+    .span6.pull-left.text-center
       - if project.videos.present?
         = iframe project.videos.first
     .span5.pull-left
       %p
-        - if current_user.try :admin?
-          %strong= link_to project.name, project
-        - else
-          %strong= project.name
+        %strong= link_to_unless_current project.name, project
       = markdown truncate(project.content, length: 35)
   - if current_user.try :admin?
     %p

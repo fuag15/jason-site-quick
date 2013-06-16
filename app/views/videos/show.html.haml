@@ -1,11 +1,7 @@
-%p
-  = @video.aspect
-%p
-  = @video.name
-%p
-  = @video.rank
-%p
-  = iframe @video
+%p= @video.aspect
+%p= @video.name
+%p= @video.rank
+%p= iframe @video
 %p
   .btn-group.pull-left
     = link_to 'back', owner_aware_videos_path(@video.owner), class: 'btn'

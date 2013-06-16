@@ -5,6 +5,7 @@
 # [rank]      The rating of this video, 0 is the highest
 # [url]       The iframe url that is generated from vimeo
 class Video < ActiveRecord::Base
+  default_scope order 'rank asc'
   belongs_to :article
   belongs_to :project
   attr_accessible :aspect, :name, :rank, :url
@@ -26,7 +27,7 @@ class Video < ActiveRecord::Base
   end
 
   private
-    
+
     # parses vimeo iframes into correct model aspects for display
     def parse_vimeo
       # only if its as expected
