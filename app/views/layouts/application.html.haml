@@ -9,8 +9,7 @@
   %body
     = render partial: 'layouts/navigation'
     .container-fluid
-      .row-fluid.wrap
-        .span1
-        .span10
+      .row-fluid
+        .span10.offset1
           = render partial: 'layouts/flash_messages'
           = yield

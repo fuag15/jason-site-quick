@@ -1,0 +1,5 @@
+= form_for about do |f|
+  = render partial: 'shared/form_error', collection: about.errors.full_messages
+  %p
+    = f.text_area :content
+  = f.submit class: 'btn btn-primary'

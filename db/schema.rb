@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321073905) do
+ActiveRecord::Schema.define(:version => 20130616025445) do
+
+  create_table "abouts", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -27,8 +33,10 @@ ActiveRecord::Schema.define(:version => 20130321073905) do
     t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "about_id"
   end
 
+  add_index "images", ["about_id"], :name => "index_images_on_about_id"
   add_index "images", ["article_id"], :name => "index_images_on_article_id"
   add_index "images", ["project_id"], :name => "index_images_on_project_id"
 

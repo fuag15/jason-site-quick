@@ -1,6 +1,6 @@
-= form_tag(submit_path) do
+= form_tag submit_path, class: 'span8 offset2 text-center' do
   %p
     = email_field_tag :from, nil, placeholder: 'email@domain.com'
   %p
-    = text_area_tag :text, nil, placeholder: 'message ...'
+    = text_area_tag :text, nil, placeholder: 'message ...', class: 'input-xxlarge', rows: 15
   = submit_tag 'Submit', class: 'btn btn-primary'

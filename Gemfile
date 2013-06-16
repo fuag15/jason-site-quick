@@ -14,6 +14,8 @@ gem 'foreman', '~> 0.62.0' # manage start commend for heroku
 gem 'sass-rails', '~> 3.2.3' # sass interpretation
 gem 'redcarpet', '~> 2.2.2' # markdown parsing
 gem 'term-ansicolor', '~> 1.1.1' # dependency of analyzer rake task
+gem 'kaminari', '~> 0.14.1' # pagination
+gem 'bootstrap-kaminari-views', '~> 0.0.2' # bootstrap compatable kaminari templates
 
 group :assets do
   gem 'bootstrap-sass', '~> 2.3.0.1' # twitter bootstrap

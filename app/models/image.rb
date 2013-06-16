@@ -7,6 +7,7 @@ class Image < ActiveRecord::Base
   mount_uploader :file, ImageUploader
   belongs_to :article
   belongs_to :project
+  belongs_to :about
   attr_accessible :file, :name
 
   # helper function to find out which model is our owner

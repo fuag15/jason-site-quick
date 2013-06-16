@@ -14,4 +14,9 @@ class PagesController < ApplicationController
     ContactMailer.contact(local_params[:from], local_params[:text]).deliver
     redirect_to contact_path, notice: 'Contact mail sent'
   end
+
+  # simple about view render
+  def about
+    @about = About.first
+  end
 end

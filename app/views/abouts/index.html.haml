@@ -1,0 +1,15 @@
+%h2
+  About
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        content
+  %tbody
+    - @abouts.each do |about|
+      %tr
+        %td
+          = link_to about.name, about
+        %td
+          = link_to truncate(about.content), about
+= link_to 'create about', new_about_path, class: 'btn btn-primary'

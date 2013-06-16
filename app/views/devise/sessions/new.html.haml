@@ -1,0 +1,4 @@
+= form_for resource, as: resource_name, html: { class: 'span8 offset2 text-center' }, url: session_path(resource_name) do |f|
+  %p= f.email_field :email, autofocus: true, placeholder: 'email'
+  %p= f.password_field :password, placeholder: 'password'
+  %p= f.submit "Sign in", class: 'btn btn-primary'

@@ -4,6 +4,10 @@ Mildwurm::Application.routes.draw do
     resources :images, :videos
   end
 
+  resources :abouts do
+    resources :images
+  end
+
   resources :projects do
     resources :members
   end
@@ -11,5 +15,5 @@ Mildwurm::Application.routes.draw do
   match '/contact' => 'pages#contact'
   match '/about' => 'pages#about'
   match '/submit' => 'pages#submit'
-  root to: 'pages#index'
+  root to: 'pages#about'
 end

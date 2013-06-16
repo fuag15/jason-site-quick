@@ -5,6 +5,14 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource
   respond_to :html
 
+  # extract main video
+  def index
+    if @projects.present?
+      @showcase_project = @projects.delete_at 0
+    end
+    render
+  end
+
   # simple create method on true sends a good notice
   def create
     flash[:notice] = 'Project Created' if @project.save

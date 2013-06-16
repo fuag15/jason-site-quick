@@ -1,0 +1,7 @@
+%p
+  = markdown @about.content
+%p
+  .btn-group.pull-left
+    = link_to 'back', abouts_path, class: 'btn'
+    = link_to 'edit', edit_about_path(@about), class: 'btn btn-primary'
+    = link_to 'images', about_images_path(@about), class: 'btn'

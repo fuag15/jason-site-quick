@@ -7,8 +7,10 @@ module ImageHelper
   def owner_aware_edit_image_path owner, image
     if owner.class.to_s == 'Article'
       edit_article_image_path owner, image
-    else
+    elsif owner.class.to_s == 'Project'
       edit_project_image_path owner, image
+    else
+      edit_about_image_path owner, image
     end
   end
 
@@ -17,8 +19,10 @@ module ImageHelper
   def owner_aware_images_path owner
     if owner.class.to_s == 'Article'
       article_images_path owner
-    else
+    elsif owner.class.to_s == 'Project'
       project_images_path owner
+    else
+      about_images_path owner
     end
   end
 
@@ -27,8 +31,10 @@ module ImageHelper
   def owner_aware_new_image_path owner
     if owner.class.to_s == 'Article'
       new_article_image_path owner
-    else
+    elsif owner.class.to_s == 'Project'
       new_project_image_path owner
+    else
+      new_about_image_path owner
     end
   end
 end

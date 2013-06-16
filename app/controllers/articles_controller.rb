@@ -5,6 +5,12 @@ class ArticlesController < ApplicationController
   load_and_authorize_resource
   respond_to :html
 
+  # overwrite index to paginate
+  def index
+    @articles = Article.page params[:page]
+    respond_with @articles
+  end
+
   # simple create method on true sends a good notice
   def create
     flash[:notice] = 'Article Created' if @article.save
