@@ -4,7 +4,10 @@
       - if project.videos.present
         = iframe project.videos.first
     %p
-      %strong= link_to project.name, project
+      - if current_user.try :admin?
+        %strong= link_to project.name, project
+      - else
+        %strong= project.name
     = markdown truncate(project.content, length: 35)
   - if current_user.try :admin?
     %p
