@@ -1,17 +1,18 @@
-%p
-  .clearfix
-    .pull-right
-      - if project.videos.present?
-        = iframe project.videos.first, 250
-    %p
-      %strong= link_to_unless_current project.name, project
-    = markdown truncate(project.content, length: 35)
-  - if current_user.try :admin?
-    %p
-      .btn-group.pull-left
-        = link_to 'back', projects_path, class: 'btn'
-        = link_to 'edit', edit_project_path(project), class: 'btn btn-primary'
-        = link_to 'images', project_images_path(project), class: 'btn'
-        = link_to 'members', project_members_path(project), class: 'btn'
-        = link_to 'videos', project_videos_path(project), class: 'btn'
-    = button_to 'destroy', project, method: :delete, class: 'btn btn-danger pull-right'
+%li
+  %p
+    .clearfix
+      .pull-right
+        - if project.videos.present?
+          = iframe project.videos.first, 250
+      %p
+        %strong= link_to_unless_current project.name, project
+      = markdown truncate(project.content, length: 35)
+    - if current_user.try :admin?
+      %p
+        .btn-group.pull-left
+          = link_to 'back', projects_path, class: 'btn'
+          = link_to 'edit', edit_project_path(project), class: 'btn btn-primary'
+          = link_to 'images', project_images_path(project), class: 'btn'
+          = link_to 'members', project_members_path(project), class: 'btn'
+          = link_to 'videos', project_videos_path(project), class: 'btn'
+      = button_to 'destroy', project, method: :delete, class: 'btn btn-danger pull-right'

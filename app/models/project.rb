@@ -7,7 +7,8 @@
 # has_many Member
 # has_many Video
 class Project < ActiveRecord::Base
-  attr_accessible :content, :name
+  default_scope order 'rank desc'
+  attr_accessible :content, :name, :rank
   has_many :images, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :videos, dependent: :destroy

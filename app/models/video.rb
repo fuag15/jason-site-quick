@@ -5,7 +5,7 @@
 # [rank]      The rating of this video, 0 is the highest
 # [url]       The iframe url that is generated from vimeo
 class Video < ActiveRecord::Base
-  default_scope order 'rank asc'
+  default_scope order 'rank desc'
   belongs_to :article
   belongs_to :project
   attr_accessible :aspect, :name, :rank, :url
@@ -22,7 +22,12 @@ class Video < ActiveRecord::Base
 
   # helper to generate iframe
   # this is for use in a redcarpet parser
-  def iframe width=500, height=281
+  def iframe width=500, height=nil
+    if aspect.present?
+      height ||= (width * 1.0/aspect).to_i
+    else
+      height ||= (width * 1.0/1.77).to_i
+    end
     "<iframe src='#{url}' width='#{width}' height='#{height}' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>"
   end
 

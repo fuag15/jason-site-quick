@@ -3,5 +3,6 @@
     .clearfix
       .pull-right
         = link_to 'create article', new_article_path, class: 'btn btn-primary'
-= render @articles
+%ul.unstyled
+  = render @articles
 = paginate @articles, theme: 'twitter-bootstrap', pagination_class: 'pagination-small pagination-centered'

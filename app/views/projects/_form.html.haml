@@ -2,4 +2,5 @@
   = render partial: 'shared/form_error', collection: project.errors.full_messages
   %p= f.text_field :name, placeholder: 'name', class: 'input-xlarge'
   %p= f.text_area :content, class: 'input-xxlarge', rows: 15
+  %p= f.text_field :rank, placeholder: '(highest shows first)'
   = f.submit class: 'btn btn-primary'
