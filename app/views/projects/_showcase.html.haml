@@ -5,7 +5,7 @@
         = iframe project.videos.first
     .span5.pull-left
       %p
-        %strong= link_to project.name, project
+        %strong= project.name
       = markdown truncate(project.content, length: 35)
   - if current_user.try :admin?
     %p
