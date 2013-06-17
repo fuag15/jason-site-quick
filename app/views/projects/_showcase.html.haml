@@ -1,12 +1,13 @@
 .row-fluid
   .clearfix
-    .span6.pull-left.text-center
-      - if project.videos.present?
-        = iframe project.videos.first
-    .span5.pull-left
-      %p
-        %strong= project.name
-      = markdown truncate(project.content, length: 35)
+    .offset1
+      .pull-left.text-center.clearfix
+        - if project.videos.present?
+          = iframe project.videos.first
+      .pull-left
+        %p
+          %strong= project.name
+        = markdown truncate(project.content, length: 35)
   - if current_user.try :admin?
     %p
       .btn-group.pull-left
