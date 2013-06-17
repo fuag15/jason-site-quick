@@ -22,6 +22,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1' # coffee asset pipe support
   gem 'therubyracer', '~> 0.11.4', :platforms => :ruby # javascript runtime in ruby
   gem 'uglifier', '>= 1.0.3' # asset minification
+  gem 'bourbon', '~> 3.1.8' # bootstrap like lib
+  gem 'neat', '~> 1.3.0' # bootstrap like lib
 end
 
 group :test, :development do
