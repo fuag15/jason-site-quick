@@ -2,8 +2,7 @@
 # usese devise junks for the rest along with cancan
 # see Ability
 class User < ActiveRecord::Base
-  devise :database_authenticatable,
-         :recoverable, :rememberable
+  devise :database_authenticatable, :recoverable, :rememberable, :registerable
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role
 
   # Simple function to test if our user is an admin

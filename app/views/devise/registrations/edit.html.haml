@@ -1,0 +1,7 @@
+= form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'span8 offset2 text-center' } do |f|
+  %p= devise_error_messages!
+  %p= f.email_field :email, autofocus: true
+  %p= f.password_field :password, autocomplete: "off", placeholder: 'new password'
+  %p= f.password_field :password_confirmation, placeholder: 'new password again'
+  %p= f.password_field :current_password, placeholder: 'old password'
+  %p= f.submit "Update", class: 'btn btn-primary'
